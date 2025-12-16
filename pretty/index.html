@@ -272,26 +272,63 @@
   const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
   const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
 
+  function countryCodeToFlagEmoji(cc){
+    if(!cc||cc.length!==2) return "";
+    return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
+  }
+
   function setEligible(cc, cn){
-    eligibleBox.textContent = `✅ Eligible In ${cn}`;
-    if(cc==="US") btn.dataset.redirect = linkUS;
-    else if(cc==="CA") btn.dataset.redirect = linkCA;
-    else if(cc==="GB") btn.dataset.redirect = linkGB;
-    else if(cc==="AU") btn.dataset.redirect = linkAU;
-    else btn.dataset.redirect = linkRest;
+    eligibleBox.textContent = `✅ Eligible In ${cn} ${countryCodeToFlagEmoji(cc)}`;
+
+    let link = linkRest;
+    if(cc==="US") link = linkUS;
+    else if(cc==="CA") link = linkCA;
+    else if(cc==="GB") link = linkGB;
+    else if(cc==="AU") link = linkAU;
+
+    btn.dataset.redirect = link;
+    stickyBtn.dataset.redirect = link;
   }
 
   fetch('https://ipapi.co/json/')
-    .then(r=>r.json())
-    .then(d=>setEligible(d.country, d.country_name))
-    .catch(()=>{btn.dataset.redirect = linkRest;});
+    .then(r=>r.ok ? r.json() : Promise.reject())
+    .then(d=>{
+      if(d && d.country && d.country_name){
+        setEligible(d.country, d.country_name);
+      } else {
+        throw new Error();
+      }
+    })
+    .catch(()=>{
+      fetch('https://ipwho.is/')
+        .then(r=>r.ok ? r.json() : Promise.reject())
+        .then(d=>{
+          if(d && d.country_code && d.country){
+            setEligible(d.country_code, d.country);
+          } else {
+            throw new Error();
+          }
+        })
+        .catch(()=>{
+          eligibleBox.textContent = "✅ You’re Eligible 🌍";
+          btn.dataset.redirect = linkRest;
+          stickyBtn.dataset.redirect = linkRest;
+        });
+    });
 
-  function redirectNow(){location.href = btn.dataset.redirect || linkRest;}
-  function handleClick(e){e.preventDefault();redirectNow();}
+  function redirectNow(){
+    location.href = btn.dataset.redirect || linkRest;
+  }
+
+  function handleClick(e){
+    e.preventDefault();
+    redirectNow();
+  }
 
   btn.addEventListener('click', handleClick);
   stickyBtn.addEventListener('click', handleClick);
 </script>
+
 
 </body>
 </html>
