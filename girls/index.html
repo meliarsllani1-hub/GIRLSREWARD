@@ -42,34 +42,45 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .text-container span:first-child{font-size:16px;font-weight:500;}
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
+/* ⭐ NEW INLINE EMAIL (ONE LINE) ⭐ */
 .inline-email{
   max-width:500px;
-  margin:0 auto 8px;
-  text-align:center;
+  margin:2px auto 10px;
+  padding:0 2px;
 }
-.inline-email input{
-  width:100%;
+.inline-email .inline-text{
+  font-size:13px;
+  color:#555;
+  margin-bottom:6px;
+  font-weight:500;
+}
+.inline-row{
+  display:flex;
+  gap:8px;
+}
+.inline-row input{
+  flex:1;
   padding:13px 16px;
-  border-radius:30px;
+  border-radius:999px;
   border:1px solid #eee;
   font-size:14px;
-  margin-bottom:8px;
   font-family:'Montserrat',sans-serif;
 }
-.inline-email button{
-  width:100%;
-  background:#ff66b2;
-  color:#fff;
+.inline-row button{
+  padding:0 18px;
+  border-radius:999px;
   border:none;
-  border-radius:30px;
-  padding:13px;
+  background:#ffd1e8;
+  color:#000;
   font-size:14px;
   font-weight:600;
   cursor:pointer;
+  white-space:nowrap;
 }
 .inline-email .note{
   font-size:11px;
   color:#888;
+  margin-top:4px;
 }
 
 .eligible-box{
@@ -111,11 +122,14 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   </div>
 </a>
 
-<!-- INLINE EMAIL (OPTIONAL, NON-BLOCKING) -->
+<!-- ⭐ NEW INLINE EMAIL ⭐ -->
 <div class="inline-email">
-  <input type="email" id="emailInput" placeholder="Optional: enter email ✨">
-  <button onclick="submitEmail()">Save & Continue</button>
-  <div class="note">Optional • No spam</div>
+  <div class="inline-text">✨ Get future rewards, drops & glow-up tips</div>
+  <div class="inline-row">
+    <input type="email" id="emailInput" placeholder="your email (optional)" autocomplete="email">
+    <button onclick="submitEmail()">Add me</button>
+  </div>
+  <div class="note">optional • no spam 💗</div>
 </div>
 
 <div class="eligible-box" id="eligible-box">Checking eligibility...</div>
