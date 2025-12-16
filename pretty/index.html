@@ -10,12 +10,9 @@
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
-  <!-- ✅ Umami Analytics (NEW DOMAIN) -->
-  <script
-    defer
-    src="https://cloud.umami.is/script.js"
-    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-  </script>
+  <!-- ✅ Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js"
+    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
   <style>
     :root{
@@ -26,315 +23,157 @@
       --border:#ececf2;
       --card:#ffffff;
       --soft:#f7f7fb;
-      --shadow1: 0 14px 40px rgba(0,0,0,.10);
       --shadow2: 0 8px 24px rgba(0,0,0,.08);
     }
 
     *{box-sizing:border-box;}
-    html,body{height:100%;}
     body{
       margin:0;
       font-family:'Montserrat',sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(1100px 520px at 50% -220px, rgba(255,102,178,.28), transparent 60%),
-        radial-gradient(900px 420px at 15% 10%, rgba(255,102,178,.10), transparent 55%),
-        linear-gradient(#fff, #fff);
+      background:#fff;
     }
 
-    .wrap{
-      max-width:540px;
-      margin:0 auto;
-      padding:16px 14px 110px;
-    }
+    .wrap{max-width:540px;margin:0 auto;padding:16px 14px 110px;}
 
-    /* Top hero */
     .hero{
       border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,102,178,.10), rgba(255,102,178,.03) 55%, #fff);
       border-radius:26px;
       padding:16px;
       box-shadow:var(--shadow2);
     }
 
-    .brandRow{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .avatar{
-      width:56px;height:56px;border-radius:18px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:0 10px 26px rgba(0,0,0,.10);
-      flex:0 0 auto;
-    }
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+    .brandRow{display:flex;gap:12px;align-items:center;}
+    .avatar{width:56px;height:56px;border-radius:18px;overflow:hidden;}
+    .avatar img{width:100%;height:100%;object-fit:cover;}
 
     .heroTitle{
       margin:0;
       font-size:20px;
       font-weight:900;
-      letter-spacing:-.25px;
-      line-height:1.15;
     }
+
     .heroSub{
       margin:6px 0 0;
       font-size:13px;
-      color:var(--muted);
-      line-height:1.35;
       font-weight:600;
+      color:var(--muted);
     }
 
-    /* Steps (fast scan) */
-    .quick{
-      margin-top:12px;
-      display:grid;
-      gap:8px;
-    }
+    .quick{margin-top:12px;display:grid;gap:8px;}
     .pill{
       display:flex;
       gap:10px;
       align-items:center;
       padding:10px 12px;
       border-radius:999px;
-      background:rgba(255,255,255,.90);
       border:1px solid var(--border);
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
       font-size:13px;
-      color:#2a2a2f;
       font-weight:600;
     }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--pink);
-      box-shadow:0 0 0 6px rgba(255,102,178,.14);
-      flex:0 0 auto;
-    }
-    .pill b{font-weight:900;}
 
-    /* Main CTA card */
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--pink);}
+
     .ctaCard{
       margin-top:14px;
-      background:var(--card);
       border:1px solid var(--border);
       border-radius:26px;
       padding:14px;
       box-shadow:var(--shadow2);
     }
 
-    /* CTR MONSTER BUTTON */
     .shein-btn{
       width:100%;
       display:flex;
       align-items:center;
-      justify-content:flex-start;
       gap:12px;
       padding:16px 14px;
       border-radius:24px;
       color:#fff;
       text-decoration:none;
-      border:none;
-      cursor:pointer;
       background:linear-gradient(135deg, var(--pink), var(--pink2));
-      box-shadow:0 16px 44px rgba(255,102,178,.34);
-      position:relative;
       overflow:hidden;
-      transform: translateZ(0);
-      -webkit-tap-highlight-color: transparent;
     }
 
-    /* shimmer sweep */
-    .shein-btn::before{
-      content:"";
-      position:absolute;
-      top:-45%;
-      left:-70%;
-      width:55%;
-      height:200%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
-      transform:rotate(18deg);
-      animation:shimmer 2.6s infinite;
-      pointer-events:none;
-    }
-    @keyframes shimmer{
-      0%{left:-80%;}
-      55%{left:130%;}
-      100%{left:130%;}
-    }
+    .btnIcon{width:50px;height:50px;border-radius:18px;overflow:hidden;}
+    .btnIcon img{width:100%;height:100%;object-fit:cover;}
 
-    /* subtle pulse ring */
-    .shein-btn::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:24px;
-      box-shadow:0 0 0 0 rgba(255,102,178,.35);
-      animation:pulse 2.3s infinite;
-      pointer-events:none;
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}
-      70%{box-shadow:0 0 0 12px rgba(255,102,178,0);}
-      100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
-    }
-
-    .shein-btn:hover{filter:saturate(1.06);}
-    .shein-btn:active{transform:scale(.99);}
-
-    .btnIcon{
-      width:50px;height:50px;border-radius:18px;
-      background:rgba(255,255,255,.18);
-      box-shadow:0 12px 26px rgba(0,0,0,.12);
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .btnIcon img{width:100%;height:100%;object-fit:cover;display:block;}
-
-    .btnText{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      flex:1 1 auto;
-      min-width:0;
-    }
+    .btnText{display:flex;flex-direction:column;min-width:0;}
     .btnText .top{
-      font-size:16px;
-      font-weight:950;
-      letter-spacing:-.2px;
+      font-size:15px;
+      font-weight:900;
       white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      text-transform:lowercase;
     }
     .btnText .sub{
-      margin-top:5px;
       font-size:11px;
-      opacity:.92;
       font-weight:800;
-      letter-spacing:.2px;
-      text-transform:lowercase;
-    }
-
-    /* “girly cue” badge (non-claimy) */
-    .btnBadge{
-      margin-left:auto;
-      background:rgba(255,255,255,.20);
-      border:1px solid rgba(255,255,255,.28);
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.7px;
-      text-transform:uppercase;
       white-space:nowrap;
     }
 
-    /* arrow bounce = extra taps */
-    .btnArrow{
-      margin-left:10px;
-      font-weight:1000;
-      font-size:22px;
-      opacity:.96;
-      flex:0 0 auto;
-      animation:nudge 1.1s infinite;
-    }
-    @keyframes nudge{
-      0%,100%{transform:translateX(0);}
-      50%{transform:translateX(3px);}
-    }
+    .btnArrow{margin-left:auto;font-size:22px;}
 
     .eligible-box{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
+      margin-top:12px;
       padding:10px 12px;
       font-size:13px;
       font-weight:700;
-      color:#2b2b30;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      margin-top:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      text-align:center;
+      border:1px solid var(--border);
+      border-radius:16px;
     }
 
     .trustRow{
       margin-top:10px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:8px;
       font-size:12px;
-      color:#7a7a86;
       font-weight:700;
       text-align:center;
+      color:#7a7a86;
     }
 
-    /* Proof */
     .proof{
       margin-top:16px;
-      background:var(--card);
       border:1px solid var(--border);
       border-radius:26px;
       padding:14px;
-      box-shadow:var(--shadow2);
     }
+
     .proofHead{
-      margin:0 0 10px;
       text-align:center;
       font-size:16px;
-      font-weight:950;
-      letter-spacing:-.2px;
+      font-weight:900;
     }
+
     .proofGrid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:10px;
     }
+
     .proofImg{
       width:100%;
-      height:auto;
-      display:block;
       border-radius:16px;
-      background:var(--soft);
-      box-shadow:0 12px 28px rgba(0,0,0,.10);
     }
 
     .fine{
       margin-top:10px;
       font-size:11px;
-      color:#8a8a94;
-      line-height:1.35;
       text-align:center;
+      color:#8a8a94;
       font-weight:600;
-      padding:0 8px;
     }
 
-    /* Sticky CTA */
     .stickyBar{
       position:fixed;
-      left:0; right:0; bottom:0;
-      z-index:999;
+      bottom:0;
+      left:0;
+      right:0;
+      background:#fff;
       padding:10px 12px;
-      background:rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
       border-top:1px solid var(--border);
     }
-    .stickyInner{
-      max-width:540px;
-      margin:0 auto;
-    }
-    .shein-btn.sticky{
-      border-radius:20px;
-      padding:14px 14px;
-      box-shadow:0 18px 46px rgba(255,102,178,.34);
-    }
-    .shein-btn.sticky::after{animation:pulse 2.1s infinite;} /* a bit faster on sticky */
 
-    /* ===== POPUP styles (isolated) ===== */
+    .stickyInner{max-width:540px;margin:0 auto;}
+
     .email-overlay{
       position:fixed;
       inset:0;
@@ -343,291 +182,112 @@
       align-items:center;
       justify-content:center;
       z-index:9999;
-      padding:16px;
     }
+
     .email-box{
       background:#fff;
-      color:#000;
-      width:100%;
       max-width:360px;
-      border-radius:18px;
+      width:100%;
       padding:20px;
+      border-radius:18px;
       text-align:center;
-      box-shadow:0 16px 40px rgba(0,0,0,.18);
     }
-    .email-box h3{
-      margin:0 0 6px;
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:-.2px;
-    }
-    .email-box p{
-      margin:0 0 12px;
-      font-size:13px;
-      color:#666;
-      line-height:1.35;
-      font-weight:600;
-    }
+
+    .email-box h3{font-size:18px;font-weight:900;}
+    .email-box p{font-size:13px;font-weight:600;color:#666;}
     .email-box input{
       width:100%;
-      padding:13px 16px;
+      padding:13px;
       border-radius:30px;
       border:1px solid #eee;
-      font-size:14px;
       margin-bottom:10px;
-      outline:none;
-      font-family:'Montserrat',sans-serif;
     }
+
     .email-box button{
       width:100%;
+      padding:13px;
+      border-radius:30px;
+      border:none;
       background:linear-gradient(135deg, var(--pink), var(--pink2));
       color:#fff;
-      border:none;
-      border-radius:30px;
-      padding:13px;
-      font-size:15px;
-      font-weight:950;
-      cursor:pointer;
-      box-shadow:0 12px 30px rgba(255,102,178,.25);
-      font-family:'Montserrat',sans-serif;
+      font-weight:900;
     }
-    .email-box button:active{transform:scale(.99);}
 
     .email-skip{
       margin-top:16px;
       font-size:12px;
-      color:#888;
-      cursor:pointer;
-      user-select:none;
       font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.6px;
-    }
-    .email-skip:hover{color:#666;}
-
-    .email-note{
-      margin-top:10px;
-      font-size:11px;
-      color:#8a8a8a;
-      line-height:1.35;
-      font-weight:600;
+      cursor:pointer;
     }
 
-    html.popup-open, body.popup-open{
-      overflow:hidden;
-      height:100%;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .shein-btn::before,.shein-btn::after,.btnArrow{animation:none;}
-      .shein-btn{transition:none;}
-    }
+    html.popup-open, body.popup-open{overflow:hidden;}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="hero">
-      <div class="brandRow">
-        <div class="avatar">
-          <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" alt="logo"/>
-        </div>
-        <div>
-          <h1 class="heroTitle">$750 SHEIN Gift Card ✨</h1>
-          <p class="heroSub">Tap continue to start. Follow the steps on the next page to complete the process.</p>
-        </div>
+  <div class="hero">
+    <div class="brandRow">
+      <div class="avatar">
+        <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png">
       </div>
-
-      <div class="quick">
-        <div class="pill"><span class="dot"></span><span><b>Step 1:</b> tap <b>continue</b> below</span></div>
-        <div class="pill"><span class="dot"></span><span><b>Step 2:</b> enter your email & basic info</span></div>
-        <div class="pill"><span class="dot"></span><span><b>Step 3:</b> complete the recommended deals to finish</span></div>
+      <div>
+        <h1 class="heroTitle">$750 SHEIN Gift Card ✨</h1>
+        <p class="heroSub">Tap Continue To Start. Follow The Steps On The Next Page To Complete The Process.</p>
       </div>
     </div>
 
-    <div class="ctaCard">
-      <!-- CTA -->
-      <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
-        <div class="btnIcon">
-          <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" alt="SHEIN"/>
-        </div>
-
-        <div class="btnText">
-          <div class="top" id="giftcard-text">continue to $750 shein gift card ✨</div>
-          <div class="sub">tap to continue • takes you to the next step</div>
-        </div>
-
-        <div class="btnBadge">top pick</div>
-        <div class="btnArrow">›</div>
-      </a>
-
-      <div class="eligible-box" id="eligible-box">Checking eligibility...</div>
-      <div class="trustRow"><span>🔒</span><span>Secure connection • trusted partners</span></div>
-    </div>
-
-    <div class="proof">
-      <h2 class="proofHead">Real rewards shown by users 👇</h2>
-      <div class="proofGrid">
-        <img class="proofImg" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="proof 1"/>
-        <img class="proofImg" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="proof 2"/>
-      </div>
-      <div class="fine">
-        Results vary. Completing recommended deals may be required to finish the process shown on the next page.
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Sticky CTA -->
-  <div class="stickyBar">
-    <div class="stickyInner">
-      <a href="#" id="sticky-btn" class="shein-btn sticky">
-        <div class="btnIcon">
-          <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" alt="SHEIN"/>
-        </div>
-
-        <div class="btnText">
-          <div class="top">continue ✨</div>
-          <div class="sub">to $750 shein gift card</div>
-        </div>
-
-        <div class="btnBadge">tap</div>
-        <div class="btnArrow">›</div>
-      </a>
+    <div class="quick">
+      <div class="pill"><span class="dot"></span><span><b>Step 1:</b> Tap <b>Continue</b> Below</span></div>
+      <div class="pill"><span class="dot"></span><span><b>Step 2:</b> Enter Your Email & Basic Info</span></div>
+      <div class="pill"><span class="dot"></span><span><b>Step 3:</b> Complete The Recommended Deals To Finish</span></div>
     </div>
   </div>
 
-  <!-- POPUP markup -->
-  <div class="email-overlay" id="emailOverlay" aria-hidden="true">
-    <div class="email-box" id="emailBox"></div>
+  <div class="ctaCard">
+    <a href="#" id="shein-btn" class="shein-btn">
+      <div class="btnIcon">
+        <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp">
+      </div>
+      <div class="btnText">
+        <div class="top">Continue To $750 SHEIN Gift Card ✨</div>
+        <div class="sub">Tap To Continue • Takes You To The Next Step</div>
+      </div>
+      <div class="btnArrow">›</div>
+    </a>
+
+    <div class="eligible-box" id="eligible-box">Checking Eligibility…</div>
+    <div class="trustRow">🔒 Secure Connection • Trusted Partners</div>
   </div>
 
-  <script>
-    const eligibleBox = document.getElementById('eligible-box');
-    const btn = document.getElementById('shein-btn');
-    const stickyBtn = document.getElementById('sticky-btn');
+  <div class="proof">
+    <h2 class="proofHead">Real Rewards Shown By Users 👇</h2>
+    <div class="proofGrid">
+      <img class="proofImg" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg">
+      <img class="proofImg" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg">
+    </div>
+    <div class="fine">
+      Results Vary. Completing Recommended Deals May Be Required To Finish The Process.
+    </div>
+  </div>
 
-    // ✅ LINKS UNCHANGED
-    const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
-    const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-    const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-    const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-    const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
+</div>
 
-    function countryCodeToFlagEmoji(cc){
-      if(!cc||cc.length!==2) return "";
-      return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
-    }
+<div class="stickyBar">
+  <div class="stickyInner">
+    <a href="#" id="sticky-btn" class="shein-btn">
+      <div class="btnIcon">
+        <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp">
+      </div>
+      <div class="btnText">
+        <div class="top">Continue ✨</div>
+        <div class="sub">To $750 SHEIN Gift Card</div>
+      </div>
+      <div class="btnArrow">›</div>
+    </a>
+  </div>
+</div>
 
-    function setEligible(cc, cn){
-      eligibleBox.textContent = `✅ Eligible in ${cn} ${countryCodeToFlagEmoji(cc)}`;
-      if(cc==="US") btn.dataset.redirect = linkUS;
-      else if(cc==="CA") btn.dataset.redirect = linkCA;
-      else if(cc==="GB") btn.dataset.redirect = linkGB;
-      else if(cc==="AU") btn.dataset.redirect = linkAU;
-      else btn.dataset.redirect = linkRest;
-    }
-
-    fetch('https://ipapi.co/json/')
-      .then(r=>r.ok ? r.json() : Promise.reject())
-      .then(d=>{
-        if(d && d.country && d.country_name) setEligible(d.country, d.country_name);
-        else throw new Error();
-      })
-      .catch(()=>{
-        fetch('https://ipwho.is/')
-          .then(r=>r.ok ? r.json() : Promise.reject())
-          .then(d=>{
-            if(d && d.country_code && d.country) setEligible(d.country_code, d.country);
-            else throw new Error();
-          })
-          .catch(()=>{
-            eligibleBox.textContent = "✅ You’re eligible 🌍";
-            btn.dataset.redirect = linkRest;
-          });
-      });
-
-    /* Popup + one-time signup (UNCHANGED LOGIC) */
-    const overlay = document.getElementById('emailOverlay');
-    const box = document.getElementById('emailBox');
-
-    function openPopup(){
-      document.documentElement.classList.add('popup-open');
-      document.body.classList.add('popup-open');
-      overlay.style.display='flex';
-      overlay.setAttribute('aria-hidden','false');
-    }
-    function closePopup(){
-      overlay.style.display='none';
-      overlay.setAttribute('aria-hidden','true');
-      document.documentElement.classList.remove('popup-open');
-      document.body.classList.remove('popup-open');
-    }
-    function redirectNow(){
-      location.href = btn.dataset.redirect || linkRest;
-    }
-
-    function handleContinueClick(e){
-      e.preventDefault();
-
-      // If already signed up once -> NO POPUP, go straight to offer
-      if(localStorage.getItem('email_signed') === 'yes'){
-        redirectNow();
-        return;
-      }
-
-      box.innerHTML = `
-        <h3>one quick step 💕</h3>
-        <p>Enter your email to continue ✨</p>
-        <input type="email" id="popupEmail" placeholder="Your email ✉️" inputmode="email" autocomplete="email">
-        <button type="button" onclick="submitEmail()">Continue 💗</button>
-        <div class="email-skip" onclick="skipEmail()">Skip & Continue</div>
-        <div class="email-note">No spam. Unsubscribe anytime.</div>
-      `;
-      openPopup();
-    }
-
-    btn.addEventListener('click', handleContinueClick);
-    stickyBtn.addEventListener('click', handleContinueClick);
-
-    function submitEmail(){
-      const emailEl = document.getElementById('popupEmail');
-      const email = (emailEl && emailEl.value || '').trim();
-      if(!email || !email.includes('@')){
-        if(emailEl) emailEl.style.borderColor = '#ff66b2';
-        return;
-      }
-
-      // Mark as signed before redirect so popup never appears again for that device
-      localStorage.setItem('email_signed','yes');
-
-      // Close popup immediately for clean UX
-      closePopup();
-
-      // Background subscribe (no JSON redirect page)
-      fetch("https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "fields[email]": email,
-          "ml-submit": "1",
-          "anticsrf": "true"
-        })
-      }).finally(() => {
-        redirectNow();
-      });
-    }
-
-    function skipEmail(){
-      closePopup();
-      redirectNow();
-    }
-
-    // Tap outside closes popup
-    overlay.addEventListener('click', (e) => {
-      if(e.target === overlay) closePopup();
-    });
-  </script>
 </body>
 </html>
