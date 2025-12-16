@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Claim Your $750 SHEIN Gift Card</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -10,12 +10,9 @@
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
-  <!-- ✅ Umami Analytics -->
-  <script
-    defer
-    src="https://cloud.umami.is/script.js"
-    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-  </script>
+  <!-- Umami -->
+  <script defer src="https://cloud.umami.is/script.js"
+    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
   <style>
     :root{
@@ -24,103 +21,80 @@
       --text:#131313;
       --muted:#6f6f76;
       --border:#ececf2;
-      --card:#ffffff;
-      --soft:#f7f7fb;
-      --shadow2: 0 8px 24px rgba(0,0,0,.08);
     }
-
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box}
     body{
       margin:0;
       font-family:'Montserrat',sans-serif;
-      color:var(--text);
       background:#fff;
+      color:var(--text);
     }
-
-    .wrap{max-width:540px;margin:0 auto;padding:16px 14px 110px;}
+    .wrap{max-width:540px;margin:0 auto;padding:16px 14px 110px}
 
     .hero{
       border:1px solid var(--border);
       border-radius:26px;
       padding:16px;
-      box-shadow:var(--shadow2);
     }
+    .brandRow{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:18px;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
 
-    .brandRow{display:flex;gap:12px;align-items:center;}
-    .avatar{width:56px;height:56px;border-radius:18px;overflow:hidden;}
-    .avatar img{width:100%;height:100%;object-fit:cover;}
+    .heroTitle{margin:0;font-size:20px;font-weight:900}
+    .heroSub{margin-top:6px;font-size:13px;font-weight:600;color:var(--muted)}
 
-    .heroTitle{margin:0;font-size:20px;font-weight:900;}
-    .heroSub{margin:6px 0 0;font-size:13px;font-weight:600;color:var(--muted);}
-
-    .quick{margin-top:12px;display:grid;gap:8px;}
+    .quick{margin-top:12px;display:grid;gap:8px}
     .pill{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:10px 12px;
-      border-radius:999px;
+      display:flex;gap:10px;align-items:center;
+      padding:10px 12px;border-radius:999px;
       border:1px solid var(--border);
-      font-size:13px;
-      font-weight:600;
+      font-size:13px;font-weight:600;
     }
-
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--pink);}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--pink)}
 
     .ctaCard{
       margin-top:14px;
       border:1px solid var(--border);
       border-radius:26px;
       padding:14px;
-      box-shadow:var(--shadow2);
     }
 
     .shein-btn{
       width:100%;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:16px 14px;
-      border-radius:24px;
-      color:#fff;
-      text-decoration:none;
-      background:linear-gradient(135deg, var(--pink), var(--pink2));
+      display:flex;align-items:center;gap:12px;
+      padding:16px 14px;border-radius:24px;
+      background:linear-gradient(135deg,var(--pink),var(--pink2));
+      color:#fff;text-decoration:none;
     }
 
-    .btnIcon{width:50px;height:50px;border-radius:18px;overflow:hidden;}
-    .btnIcon img{width:100%;height:100%;object-fit:cover;}
+    .btnIcon{width:50px;height:50px;border-radius:18px;overflow:hidden}
+    .btnIcon img{width:100%;height:100%;object-fit:cover}
 
-    .btnText{display:flex;flex-direction:column;min-width:0;}
+    .btnText{display:flex;flex-direction:column;min-width:0}
     .btnText .top{
-      font-size:15px;
-      font-weight:900;
+      font-size:15px;font-weight:900;
       white-space:nowrap;
     }
     .btnText .sub{
-      font-size:10px; /* smaller than main text */
-      font-weight:700;
-      white-space:nowrap;
-      opacity:.9;
+      font-size:10px;font-weight:700;
+      white-space:nowrap;opacity:.9;
     }
 
-    .btnArrow{margin-left:auto;font-size:22px;}
+    .btnArrow{margin-left:auto;font-size:22px}
 
     .eligible-box{
       margin-top:12px;
       padding:10px 12px;
-      font-size:13px;
-      font-weight:700;
-      text-align:center;
+      font-size:13px;font-weight:700;
       border:1px solid var(--border);
       border-radius:16px;
+      text-align:center;
     }
 
     .trustRow{
       margin-top:10px;
-      font-size:12px;
-      font-weight:700;
-      text-align:center;
-      color:#7a7a86;
+      font-size:12px;font-weight:700;
+      color:#7a7a86;text-align:center;
     }
 
     .proof{
@@ -129,70 +103,51 @@
       border-radius:26px;
       padding:14px;
     }
-
-    .proofHead{text-align:center;font-size:16px;font-weight:900;}
-    .proofGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .proofImg{width:100%;border-radius:16px;}
+    .proofHead{text-align:center;font-size:16px;font-weight:900}
+    .proofGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .proofImg{width:100%;border-radius:16px}
 
     .fine{
       margin-top:10px;
-      font-size:11px;
-      text-align:center;
-      color:#8a8a94;
-      font-weight:600;
+      font-size:11px;font-weight:600;
+      color:#8a8a94;text-align:center;
     }
 
     .stickyBar{
-      position:fixed;
-      bottom:0;left:0;right:0;
+      position:fixed;left:0;right:0;bottom:0;
       background:#fff;
       padding:10px 12px;
       border-top:1px solid var(--border);
     }
-    .stickyInner{max-width:540px;margin:0 auto;}
+    .stickyInner{max-width:540px;margin:0 auto}
 
     /* Popup */
     .email-overlay{
       position:fixed;inset:0;
       background:rgba(0,0,0,.45);
-      display:none;
-      align-items:center;
-      justify-content:center;
+      display:none;align-items:center;justify-content:center;
       z-index:9999;
     }
     .email-box{
-      background:#fff;
-      max-width:360px;width:100%;
-      padding:20px;
-      border-radius:18px;
-      text-align:center;
+      background:#fff;width:100%;max-width:360px;
+      border-radius:18px;padding:20px;text-align:center;
     }
-    .email-box h3{font-size:18px;font-weight:900;}
-    .email-box p{font-size:13px;font-weight:600;color:#666;}
+    .email-box h3{font-size:18px;font-weight:900}
+    .email-box p{font-size:13px;font-weight:600;color:#666}
     .email-box input{
-      width:100%;
-      padding:13px;
-      border-radius:30px;
-      border:1px solid #eee;
-      margin-bottom:10px;
+      width:100%;padding:13px;border-radius:30px;
+      border:1px solid #eee;margin-bottom:10px;
     }
     .email-box button{
-      width:100%;
-      padding:13px;
-      border-radius:30px;
-      border:none;
-      background:linear-gradient(135deg,var(--pink),var(--pink2));
-      color:#fff;
-      font-weight:900;
+      width:100%;padding:13px;border-radius:30px;
+      border:none;background:linear-gradient(135deg,var(--pink),var(--pink2));
+      color:#fff;font-weight:900;
     }
     .email-skip{
-      margin-top:16px;
-      font-size:12px;
-      font-weight:900;
-      cursor:pointer;
+      margin-top:16px;font-size:12px;font-weight:900;cursor:pointer;
     }
 
-    html.popup-open,body.popup-open{overflow:hidden;}
+    html.popup-open,body.popup-open{overflow:hidden}
   </style>
 </head>
 
@@ -211,9 +166,9 @@
     </div>
 
     <div class="quick">
-      <div class="pill"><span class="dot"></span><span><b>Step 1:</b> Tap <b>Continue</b> Below</span></div>
-      <div class="pill"><span class="dot"></span><span><b>Step 2:</b> Enter Your Email & Basic Info</span></div>
-      <div class="pill"><span class="dot"></span><span><b>Step 3:</b> Complete The Recommended Deals To Finish</span></div>
+      <div class="pill"><span class="dot"></span>Step 1: Tap Continue Below</div>
+      <div class="pill"><span class="dot"></span>Step 2: Enter Your Email & Basic Info</div>
+      <div class="pill"><span class="dot"></span>Step 3: Complete The Recommended Deals To Finish</div>
     </div>
   </div>
 
@@ -234,7 +189,7 @@
   </div>
 
   <div class="proof">
-    <h2 class="proofHead">Real Rewards Shown By Users 👇</h2>
+    <h2 class="proofHead">Real Rewards Shown By Users</h2>
     <div class="proofGrid">
       <img class="proofImg" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg">
       <img class="proofImg" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg">
@@ -260,7 +215,10 @@
   </div>
 </div>
 
-<!-- ✅ ORIGINAL SCRIPT RESTORED -->
+<div class="email-overlay" id="emailOverlay">
+  <div class="email-box" id="emailBox"></div>
+</div>
+
 <script>
   const eligibleBox = document.getElementById('eligible-box');
   const btn = document.getElementById('shein-btn');
@@ -279,40 +237,34 @@
 
   function setEligible(cc, cn){
     eligibleBox.textContent = `✅ Eligible In ${cn} ${countryCodeToFlagEmoji(cc)}`;
-
     let link = linkRest;
-    if(cc==="US") link = linkUS;
-    else if(cc==="CA") link = linkCA;
-    else if(cc==="GB") link = linkGB;
-    else if(cc==="AU") link = linkAU;
-
+    if(cc==="US") link=linkUS;
+    else if(cc==="CA") link=linkCA;
+    else if(cc==="GB") link=linkGB;
+    else if(cc==="AU") link=linkAU;
     btn.dataset.redirect = link;
     stickyBtn.dataset.redirect = link;
   }
 
   fetch('https://ipapi.co/json/')
-    .then(r=>r.ok ? r.json() : Promise.reject())
+    .then(r=>r.ok?r.json():Promise.reject())
     .then(d=>{
       if(d && d.country && d.country_name){
-        setEligible(d.country, d.country_name);
-      } else {
-        throw new Error();
-      }
+        setEligible(d.country,d.country_name);
+      } else throw new Error();
     })
     .catch(()=>{
       fetch('https://ipwho.is/')
-        .then(r=>r.ok ? r.json() : Promise.reject())
+        .then(r=>r.ok?r.json():Promise.reject())
         .then(d=>{
           if(d && d.country_code && d.country){
-            setEligible(d.country_code, d.country);
-          } else {
-            throw new Error();
-          }
+            setEligible(d.country_code,d.country);
+          } else throw new Error();
         })
         .catch(()=>{
-          eligibleBox.textContent = "✅ You’re Eligible 🌍";
-          btn.dataset.redirect = linkRest;
-          stickyBtn.dataset.redirect = linkRest;
+          eligibleBox.textContent="✅ You’re Eligible 🌍";
+          btn.dataset.redirect=linkRest;
+          stickyBtn.dataset.redirect=linkRest;
         });
     });
 
@@ -320,15 +272,14 @@
     location.href = btn.dataset.redirect || linkRest;
   }
 
-  function handleClick(e){
+  function handleContinueClick(e){
     e.preventDefault();
     redirectNow();
   }
 
-  btn.addEventListener('click', handleClick);
-  stickyBtn.addEventListener('click', handleClick);
+  btn.addEventListener('click',handleContinueClick);
+  stickyBtn.addEventListener('click',handleContinueClick);
 </script>
-
 
 </body>
 </html>
