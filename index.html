@@ -2,119 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Claim Your $750 SHEIN Gift Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Claim Your Gift</title>
 
-<link crossorigin href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-<link crossorigin href="https://i.postimg.cc" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
 
-<!-- Umami Analytics -->
-<script
-  defer
-  src="https://cloud.umami.is/script.js"
-  data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-</script>
+<!-- Umami -->
+<script defer src="https://cloud.umami.is/script.js"
+  data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
 <style>
-body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
-.steps-box{color:#000;padding:20px;font-size:17px;text-align:center;line-height:1.6;max-width:500px;margin:20px auto;box-sizing:border-box;}
-.steps-box p{margin:16px 0;}
-.shein-btn{background:#ff66b2;color:#fff;padding:14px 20px;font-size:15px;border:2px solid #fff;cursor:pointer;display:flex;align-items:center;justify-content:flex-start;border-radius:50px;font-family:'Montserrat',sans-serif;width:100%;max-width:500px;margin:6px auto 14px auto;box-sizing:border-box;transition:transform .2s;animation:sheinPulse 2.2s infinite;}
-.shein-btn:hover{transform:scale(1.05);}
-@keyframes sheinPulse{0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}}
-.text-container span:first-child{font-size:16px;font-weight:500;}
-.subtext{font-size:11px;margin-top:4px;opacity:.9;}
-.eligible-box{background:#fff;max-width:500px;margin:10px auto 0;padding:10px 14px;font-size:13px;text-align:center;color:#333;border-radius:12px;border:1px solid #eee;box-shadow:0 1px 6px rgba(0,0,0,.04);font-weight:500;min-height:38px;display:flex;align-items:center;justify-content:center;}
-.trust-text{text-align:center;font-size:12px;color:#888;margin-top:12px;font-weight:500;max-width:500px;margin-left:auto;margin-right:auto;}
-.proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
-.proof-image{width:100%;max-width:400px;border-radius:10px;display:block;margin:0 auto 20px auto;box-shadow:0 6px 24px rgba(0,0,0,.11);}
+body{
+  background:#0f0f12;
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  color:#fff;
+}
+.shein-btn{
+  background:#ff4fa3;
+  color:#fff;
+  padding:16px 22px;
+  border:none;
+  border-radius:50px;
+  width:100%;
+  max-width:500px;
+  margin:20px auto;
+  font-size:16px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,79,163,.4);}
+  70%{box-shadow:0 0 0 14px rgba(255,79,163,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,79,163,0);}
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.modal-box{
+  background:#fff;
+  color:#000;
+  width:90%;
+  max-width:360px;
+  border-radius:22px;
+  padding:22px;
+  text-align:center;
+  animation:pop .25s ease;
+}
+@keyframes pop{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.modal-box h3{
+  margin:0 0 8px;
+  font-weight:600;
+}
+.modal-box p{
+  font-size:13px;
+  color:#555;
+  margin:0 0 14px;
+}
+.modal-box input{
+  width:100%;
+  padding:14px;
+  border-radius:30px;
+  border:1px solid #eee;
+  font-size:14px;
+  margin-bottom:10px;
+}
+.modal-box button{
+  width:100%;
+  background:#ff4fa3;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  padding:14px;
+  font-size:15px;
+  cursor:pointer;
+}
+.close{
+  margin-top:10px;
+  font-size:12px;
+  color:#888;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
-<div style="text-align:center;margin-top:20px;margin-bottom:25px;">
-<img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
-<h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-<p style="font-size:15px;color:#6D6D6D;margin:0;">Higher value deals = faster rewards!</p>
+<div style="max-width:500px;margin:40px auto;text-align:center;">
+  <h1>Claim Your Gift Now 💕</h1>
+  <p style="color:#aaa;font-size:14px;">Higher value deals = faster rewards</p>
+
+  <button class="shein-btn" id="mainCTA">
+    🎁 $750 SHEIN Gift Card
+  </button>
 </div>
 
-<div class="steps-box">
-<p>1. Click The Link Below👇</p>
-<p>2. Enter Your Email & Basic Info</p>
-<p>3. Complete Recommended Deals<br><span style="font-size:12px;color:#6D6D6D">(Higher value deals = faster rewards!)</span></p>
-<p>4. Claim Your Gift Card!</p>
+<!-- MODAL -->
+<div class="modal" id="emailModal">
+  <div class="modal-box" id="modalContent">
+    <!-- dynamic -->
+  </div>
 </div>
 
-<!-- EMAIL CAPTURE + CTA -->
-<form
-  id="email-form"
+<!-- MailerLite FORM (hidden submit) -->
+<form id="mlForm"
   action="https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe"
-  method="post"
->
-
+  method="post">
   <input type="hidden" name="ml-submit" value="1">
   <input type="hidden" name="anticsrf" value="true">
-
-  <!-- hidden email input -->
-  <input
-    type="email"
-    name="fields[email]"
-    required
-    autocomplete="email"
-    style="position:absolute;opacity:0;height:0;width:0;"
-  >
-
-  <button
-    type="submit"
-    id="shein-btn"
-    class="shein-btn"
-    data-umami-event="offer-click"
-  >
-    <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
-    <div class="text-container" style="display:flex;flex-direction:column;align-items:flex-start;margin-left:25px;">
-      <span>$750 SHEIN Gift Card</span>
-      <span class="subtext">(Enter Email & Complete Deals)</span>
-    </div>
-  </button>
+  <input type="email" name="fields[email]" id="mlEmail">
 </form>
 
-<div class="eligible-box" id="eligible-box">Checking eligibility...</div>
-<p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
-
-<div class="proof-headline">Real Rewards. Real People. 👇</div>
-<img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
-<img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
-
 <script>
-const eligibleBox=document.getElementById('eligible-box');
-const btn=document.getElementById('shein-btn');
+const modal = document.getElementById('emailModal');
+const modalBox = document.getElementById('modalContent');
+const emailInput = document.getElementById('mlEmail');
 
-const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
-const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
+const offerLink = "https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
 
-function setEligible(cc,cn){
-  eligibleBox.textContent=`✅ You are eligible – ${cn}`;
-  if(cc==="US") btn.dataset.redirect=linkUS;
-  else if(cc==="CA") btn.dataset.redirect=linkCA;
-  else if(cc==="GB") btn.dataset.redirect=linkGB;
-  else if(cc==="AU") btn.dataset.redirect=linkAU;
-  else btn.dataset.redirect=linkRest;
+document.getElementById('mainCTA').onclick = () => {
+  if(localStorage.getItem('subscribed')){
+    modalBox.innerHTML = `
+      <h3>you’re already on the list 💖</h3>
+      <p>redirecting you now…</p>
+    `;
+    modal.style.display="flex";
+    setTimeout(()=>location.href=offerLink,1200);
+  } else {
+    modalBox.innerHTML = `
+      <h3>stay in the loop 💕</h3>
+      <p>cute rewards, exclusive deals & fun drops ✨</p>
+      <input type="email" id="emailField" placeholder="your email ✉️">
+      <button onclick="submitEmail()">save & continue 💗</button>
+      <div class="close" onclick="skip()">no thanks, continue</div>
+    `;
+    modal.style.display="flex";
+  }
+};
+
+function submitEmail(){
+  const val = document.getElementById('emailField').value;
+  if(!val.includes('@')) return;
+  emailInput.value = val;
+  localStorage.setItem('subscribed','yes');
+  document.getElementById('mlForm').submit();
+  setTimeout(()=>location.href=offerLink,700);
 }
 
-fetch('https://ipapi.co/json/')
-.then(r=>r.json())
-.then(d=>setEligible(d.country,d.country_name))
-.catch(()=>{btn.dataset.redirect=linkRest;eligibleBox.textContent="✅ You are eligible 🌍";});
-
-document.getElementById('email-form').addEventListener('submit',function(){
-  setTimeout(()=>{window.location.href=btn.dataset.redirect},600);
-});
+function skip(){
+  modal.style.display="none";
+  location.href = offerLink;
+}
 </script>
 
 </body>
