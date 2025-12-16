@@ -42,7 +42,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .text-container span:first-child{font-size:16px;font-weight:500;}
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* INLINE EMAIL (FINAL VERSION) */
+/* INLINE EMAIL – SYMMETRIC WITH CTA */
 .inline-email{
   max-width:500px;
   margin:4px auto 10px;
@@ -55,24 +55,34 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   margin-bottom:6px;
   font-weight:500;
 }
-.inline-row{
+
+.inline-pill{
   display:flex;
-  justify-content:center;
-  gap:8px;
-}
-.inline-row input{
-  flex:1;
-  max-width:320px;
-  padding:13px 16px;
-  border-radius:999px;
+  align-items:center;
+  width:100%;
+  max-width:500px;
+  margin:0 auto;
+  padding:4px;
+  border-radius:50px;
   border:1px solid #eee;
+  background:#fff;
+  box-sizing:border-box;
+}
+
+.inline-pill input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:13px 16px;
   font-size:14px;
   font-family:'Montserrat',sans-serif;
   text-align:center;
 }
-.inline-row button{
-  padding:0 18px;
-  border-radius:999px;
+
+.inline-pill button{
+  padding:0 22px;
+  height:44px;
+  border-radius:50px;
   border:none;
   background:#ffd1e8;
   color:#000;
@@ -81,6 +91,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   cursor:pointer;
   white-space:nowrap;
 }
+
 .note{
   font-size:11px;
   color:#888;
@@ -126,10 +137,10 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   </div>
 </a>
 
-<!-- INLINE EMAIL -->
+<!-- INLINE EMAIL (SYMMETRIC) -->
 <div class="inline-email">
   <div class="inline-text">✨ Get Future Rewards, Drops & Glow-Up Tips ✨</div>
-  <div class="inline-row">
+  <div class="inline-pill">
     <input type="email" id="emailInput" placeholder="Your Email" autocomplete="email">
     <button onclick="submitEmail()">ADD ME</button>
   </div>
