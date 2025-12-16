@@ -31,7 +31,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
 .proof-image{width:100%;max-width:400px;border-radius:10px;display:block;margin:0 auto 20px auto;box-shadow:0 6px 24px rgba(0,0,0,.11);background:#f8f8f8;height:auto;}
 
-/* ===== ADDED: popup styles (isolated, no collisions) ===== */
+/* ===== POPUP styles (isolated) ===== */
 .email-overlay{
   position:fixed;
   inset:0;
@@ -50,6 +50,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   padding:20px;
   text-align:center;
   font-family:'Montserrat',sans-serif;
+  box-shadow:0 16px 40px rgba(0,0,0,.18);
 }
 .email-box h3{
   margin:0 0 6px;
@@ -69,6 +70,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   font-size:14px;
   margin-bottom:10px;
   box-sizing:border-box;
+  outline:none;
 }
 .email-box button{
   width:100%;
@@ -80,11 +82,32 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   font-size:15px;
   cursor:pointer;
 }
-.email-skip{
+.email-box button:active{transform:scale(.99);}
+
+/* Better skip button (more clickable, still subtle) */
+.email-skip-btn{
+  width:100%;
   margin-top:10px;
-  font-size:12px;
-  color:#888;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:30px;
+  padding:12px;
+  font-size:13px;
+  color:#666;
   cursor:pointer;
+}
+.email-skip-btn:active{transform:scale(.99);}
+
+.email-note{
+  margin-top:10px;
+  font-size:11px;
+  color:#8a8a8a;
+}
+
+/* Prevent iOS zoom while popup open */
+html.popup-open, body.popup-open{
+  overflow:hidden;
+  height:100%;
 }
 </style>
 </head>
@@ -104,7 +127,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <p>4. Claim Your Gift Card!</p>
 </div>
 
-<!-- CTA (UNCHANGED visually, behavior overridden) -->
+<!-- CTA (VISUALLY UNCHANGED) -->
 <a
   href="#"
   id="shein-btn"
@@ -125,19 +148,10 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
 <img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
 
-<!-- ===== ADDED: email popup markup ===== -->
-<div class="email-overlay" id="emailOverlay">
+<!-- POPUP markup -->
+<div class="email-overlay" id="emailOverlay" aria-hidden="true">
   <div class="email-box" id="emailBox"></div>
 </div>
-
-<!-- ===== ADDED: hidden MailerLite form ===== -->
-<form id="mlForm"
-  action="https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe"
-  method="post">
-  <input type="hidden" name="ml-submit" value="1">
-  <input type="hidden" name="anticsrf" value="true">
-  <input type="email" name="fields[email]" id="mlEmail">
-</form>
 
 <script>
 const eligibleBox=document.getElementById('eligible-box');
@@ -173,43 +187,91 @@ fetch('https://ipapi.co/json/')
  .catch(()=>{eligibleBox.textContent="✅ You are eligible 🌍";btn.dataset.redirect=linkRest;});
 });
 
-/* ===== ADDED: popup + one-time signup logic ===== */
+/* Popup + one-time signup */
 const overlay=document.getElementById('emailOverlay');
 const box=document.getElementById('emailBox');
+
+function openPopup(){
+  document.documentElement.classList.add('popup-open');
+  document.body.classList.add('popup-open');
+  overlay.style.display='flex';
+  overlay.setAttribute('aria-hidden','false');
+}
+
+function closePopup(){
+  overlay.style.display='none';
+  overlay.setAttribute('aria-hidden','true');
+  document.documentElement.classList.remove('popup-open');
+  document.body.classList.remove('popup-open');
+}
+
+function redirectNow(){
+  location.href = btn.dataset.redirect || linkRest;
+}
 
 btn.addEventListener('click',function(e){
   e.preventDefault();
 
-  if(localStorage.getItem('email_signed')){
-    box.innerHTML=`<h3>you’re already on the list 💖</h3><p>redirecting you now…</p>`;
-    overlay.style.display='flex';
-    setTimeout(()=>location.href=btn.dataset.redirect,1200);
+  // If already signed up once -> NO POPUP, go straight to offer
+  if(localStorage.getItem('email_signed') === 'yes'){
+    redirectNow();
     return;
   }
 
   box.innerHTML=`
-    <h3>stay in the loop 💕</h3>
-    <p>cute rewards, exclusive deals & fun drops ✨</p>
-    <input type="email" id="popupEmail" placeholder="your email ✉️">
-    <button onclick="submitEmail()">save & continue 💗</button>
-    <div class="email-skip" onclick="skipEmail()">skip for now</div>
+    <h3>Stay in the loop 💕</h3>
+    <p>Get cute deals + future drops (not just rewards) ✨</p>
+    <input type="email" id="popupEmail" placeholder="Your email ✉️" inputmode="email" autocomplete="email">
+    <button type="button" onclick="submitEmail()">Save & Continue 💗</button>
+    <button type="button" class="email-skip-btn" onclick="skipEmail()">Skip & Continue</button>
+    <div class="email-note">No spam. Unsubscribe anytime.</div>
   `;
-  overlay.style.display='flex';
+
+  openPopup();
+
+  // Avoid iOS zoom by not auto-focusing. User taps field themselves.
 });
 
+// Submit via fetch (no redirect to JSON page)
 function submitEmail(){
-  const v=document.getElementById('popupEmail').value;
-  if(!v||!v.includes('@')) return;
-  document.getElementById('mlEmail').value=v;
+  const emailEl = document.getElementById('popupEmail');
+  const email = (emailEl && emailEl.value || '').trim();
+  if(!email || !email.includes('@')){
+    if(emailEl) emailEl.style.borderColor = '#ff66b2';
+    return;
+  }
+
+  // Mark as signed before redirect so popup never appears again for that device
   localStorage.setItem('email_signed','yes');
-  document.getElementById('mlForm').submit();
-  setTimeout(()=>location.href=btn.dataset.redirect,700);
+
+  // Close popup immediately for clean UX
+  closePopup();
+
+  // Background subscribe (no page navigation)
+  fetch("https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      "fields[email]": email,
+      "ml-submit": "1",
+      "anticsrf": "true"
+    })
+  }).finally(() => {
+    redirectNow();
+  });
 }
 
 function skipEmail(){
-  overlay.style.display='none';
-  location.href=btn.dataset.redirect;
+  closePopup();
+  redirectNow();
 }
+
+// Optional: tap outside closes popup (doesn't hurt CTR, but feels normal)
+overlay.addEventListener('click', (e) => {
+  if(e.target === overlay){
+    closePopup();
+  }
+});
 </script>
 
 </body>
