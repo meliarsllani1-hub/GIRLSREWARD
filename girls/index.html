@@ -42,13 +42,14 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .text-container span:first-child{font-size:16px;font-weight:500;}
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* ⭐ NEW INLINE EMAIL (ONE LINE) ⭐ */
+/* INLINE EMAIL (FINAL VERSION) */
 .inline-email{
   max-width:500px;
-  margin:2px auto 10px;
-  padding:0 2px;
+  margin:4px auto 10px;
+  text-align:center;
+  opacity:0.95;
 }
-.inline-email .inline-text{
+.inline-text{
   font-size:13px;
   color:#555;
   margin-bottom:6px;
@@ -56,15 +57,18 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .inline-row{
   display:flex;
+  justify-content:center;
   gap:8px;
 }
 .inline-row input{
   flex:1;
+  max-width:320px;
   padding:13px 16px;
   border-radius:999px;
   border:1px solid #eee;
   font-size:14px;
   font-family:'Montserrat',sans-serif;
+  text-align:center;
 }
 .inline-row button{
   padding:0 18px;
@@ -73,11 +77,11 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   background:#ffd1e8;
   color:#000;
   font-size:14px;
-  font-weight:600;
+  font-weight:700;
   cursor:pointer;
   white-space:nowrap;
 }
-.inline-email .note{
+.note{
   font-size:11px;
   color:#888;
   margin-top:4px;
@@ -112,7 +116,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   <p>4. Claim Your Gift Card!</p>
 </div>
 
-<!-- CTA (UNCHANGED) -->
+<!-- CTA -->
 <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
   <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"
        style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
@@ -122,12 +126,12 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   </div>
 </a>
 
-<!-- ⭐ NEW INLINE EMAIL ⭐ -->
+<!-- INLINE EMAIL -->
 <div class="inline-email">
-  <div class="inline-text">✨ Get future rewards, drops & glow-up tips</div>
+  <div class="inline-text">✨ Get Future Rewards, Drops & Glow-Up Tips ✨</div>
   <div class="inline-row">
-    <input type="email" id="emailInput" placeholder="your email (optional)" autocomplete="email">
-    <button onclick="submitEmail()">Add me</button>
+    <input type="email" id="emailInput" placeholder="Your Email" autocomplete="email">
+    <button onclick="submitEmail()">ADD ME</button>
   </div>
   <div class="note">optional • no spam 💗</div>
 </div>
