@@ -11,8 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
   <!-- ✅ Umami Analytics -->
-  <script defer src="https://cloud.umami.is/script.js"
-    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
+  <script
+    defer
+    src="https://cloud.umami.is/script.js"
+    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
+  </script>
 
   <style>
     :root{
@@ -47,18 +50,8 @@
     .avatar{width:56px;height:56px;border-radius:18px;overflow:hidden;}
     .avatar img{width:100%;height:100%;object-fit:cover;}
 
-    .heroTitle{
-      margin:0;
-      font-size:20px;
-      font-weight:900;
-    }
-
-    .heroSub{
-      margin:6px 0 0;
-      font-size:13px;
-      font-weight:600;
-      color:var(--muted);
-    }
+    .heroTitle{margin:0;font-size:20px;font-weight:900;}
+    .heroSub{margin:6px 0 0;font-size:13px;font-weight:600;color:var(--muted);}
 
     .quick{margin-top:12px;display:grid;gap:8px;}
     .pill{
@@ -92,7 +85,6 @@
       color:#fff;
       text-decoration:none;
       background:linear-gradient(135deg, var(--pink), var(--pink2));
-      overflow:hidden;
     }
 
     .btnIcon{width:50px;height:50px;border-radius:18px;overflow:hidden;}
@@ -105,9 +97,10 @@
       white-space:nowrap;
     }
     .btnText .sub{
-      font-size:11px;
-      font-weight:800;
+      font-size:10px; /* smaller than main text */
+      font-weight:700;
       white-space:nowrap;
+      opacity:.9;
     }
 
     .btnArrow{margin-left:auto;font-size:22px;}
@@ -137,22 +130,9 @@
       padding:14px;
     }
 
-    .proofHead{
-      text-align:center;
-      font-size:16px;
-      font-weight:900;
-    }
-
-    .proofGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .proofImg{
-      width:100%;
-      border-radius:16px;
-    }
+    .proofHead{text-align:center;font-size:16px;font-weight:900;}
+    .proofGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .proofImg{width:100%;border-radius:16px;}
 
     .fine{
       margin-top:10px;
@@ -164,35 +144,29 @@
 
     .stickyBar{
       position:fixed;
-      bottom:0;
-      left:0;
-      right:0;
+      bottom:0;left:0;right:0;
       background:#fff;
       padding:10px 12px;
       border-top:1px solid var(--border);
     }
-
     .stickyInner{max-width:540px;margin:0 auto;}
 
+    /* Popup */
     .email-overlay{
-      position:fixed;
-      inset:0;
+      position:fixed;inset:0;
       background:rgba(0,0,0,.45);
       display:none;
       align-items:center;
       justify-content:center;
       z-index:9999;
     }
-
     .email-box{
       background:#fff;
-      max-width:360px;
-      width:100%;
+      max-width:360px;width:100%;
       padding:20px;
       border-radius:18px;
       text-align:center;
     }
-
     .email-box h3{font-size:18px;font-weight:900;}
     .email-box p{font-size:13px;font-weight:600;color:#666;}
     .email-box input{
@@ -202,17 +176,15 @@
       border:1px solid #eee;
       margin-bottom:10px;
     }
-
     .email-box button{
       width:100%;
       padding:13px;
       border-radius:30px;
       border:none;
-      background:linear-gradient(135deg, var(--pink), var(--pink2));
+      background:linear-gradient(135deg,var(--pink),var(--pink2));
       color:#fff;
       font-weight:900;
     }
-
     .email-skip{
       margin-top:16px;
       font-size:12px;
@@ -220,20 +192,20 @@
       cursor:pointer;
     }
 
-    html.popup-open, body.popup-open{overflow:hidden;}
+    html.popup-open,body.popup-open{overflow:hidden;}
   </style>
 </head>
 
 <body>
-<div class="wrap">
 
+<div class="wrap">
   <div class="hero">
     <div class="brandRow">
       <div class="avatar">
         <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png">
       </div>
       <div>
-        <h1 class="heroTitle">$750 SHEIN Gift Card ✨</h1>
+        <h1 class="heroTitle">$750 SHEIN Gift Card</h1>
         <p class="heroSub">Tap Continue To Start. Follow The Steps On The Next Page To Complete The Process.</p>
       </div>
     </div>
@@ -251,7 +223,7 @@
         <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp">
       </div>
       <div class="btnText">
-        <div class="top">Continue To $750 SHEIN Gift Card ✨</div>
+        <div class="top">Continue To $750 SHEIN Gift Card</div>
         <div class="sub">Tap To Continue • Takes You To The Next Step</div>
       </div>
       <div class="btnArrow">›</div>
@@ -271,7 +243,6 @@
       Results Vary. Completing Recommended Deals May Be Required To Finish The Process.
     </div>
   </div>
-
 </div>
 
 <div class="stickyBar">
@@ -281,13 +252,46 @@
         <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp">
       </div>
       <div class="btnText">
-        <div class="top">Continue ✨</div>
+        <div class="top">Continue</div>
         <div class="sub">To $750 SHEIN Gift Card</div>
       </div>
       <div class="btnArrow">›</div>
     </a>
   </div>
 </div>
+
+<!-- ✅ ORIGINAL SCRIPT RESTORED -->
+<script>
+  const eligibleBox = document.getElementById('eligible-box');
+  const btn = document.getElementById('shein-btn');
+  const stickyBtn = document.getElementById('sticky-btn');
+
+  const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
+  const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
+  const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
+  const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
+  const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
+
+  function setEligible(cc, cn){
+    eligibleBox.textContent = `✅ Eligible In ${cn}`;
+    if(cc==="US") btn.dataset.redirect = linkUS;
+    else if(cc==="CA") btn.dataset.redirect = linkCA;
+    else if(cc==="GB") btn.dataset.redirect = linkGB;
+    else if(cc==="AU") btn.dataset.redirect = linkAU;
+    else btn.dataset.redirect = linkRest;
+  }
+
+  fetch('https://ipapi.co/json/')
+    .then(r=>r.json())
+    .then(d=>setEligible(d.country, d.country_name))
+    .catch(()=>{btn.dataset.redirect = linkRest;});
+
+  function redirectNow(){location.href = btn.dataset.redirect || linkRest;}
+  function handleClick(e){e.preventDefault();redirectNow();}
+
+  btn.addEventListener('click', handleClick);
+  stickyBtn.addEventListener('click', handleClick);
+</script>
 
 </body>
 </html>
