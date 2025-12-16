@@ -84,19 +84,15 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .email-box button:active{transform:scale(.99);}
 
-/* Better skip button (more clickable, still subtle) */
-.email-skip-btn{
-  width:100%;
-  margin-top:10px;
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:30px;
-  padding:12px;
-  font-size:13px;
-  color:#666;
+/* Skip is a simple clickable text (no button, no pink) */
+.email-skip{
+  margin-top:16px;          /* a bit lower */
+  font-size:12px;
+  color:#888;
   cursor:pointer;
+  user-select:none;
 }
-.email-skip-btn:active{transform:scale(.99);}
+.email-skip:hover{color:#666;}
 
 .email-note{
   margin-top:10px;
@@ -197,14 +193,12 @@ function openPopup(){
   overlay.style.display='flex';
   overlay.setAttribute('aria-hidden','false');
 }
-
 function closePopup(){
   overlay.style.display='none';
   overlay.setAttribute('aria-hidden','true');
   document.documentElement.classList.remove('popup-open');
   document.body.classList.remove('popup-open');
 }
-
 function redirectNow(){
   location.href = btn.dataset.redirect || linkRest;
 }
@@ -218,21 +212,18 @@ btn.addEventListener('click',function(e){
     return;
   }
 
+  // Text reverted to your preferred vibe
   box.innerHTML=`
     <h3>Stay in the loop 💕</h3>
-    <p>Get cute deals + future drops (not just rewards) ✨</p>
+    <p>Cute rewards, exclusive deals & fun drops ✨</p>
     <input type="email" id="popupEmail" placeholder="Your email ✉️" inputmode="email" autocomplete="email">
     <button type="button" onclick="submitEmail()">Save & Continue 💗</button>
-    <button type="button" class="email-skip-btn" onclick="skipEmail()">Skip & Continue</button>
+    <div class="email-skip" onclick="skipEmail()">Skip & Continue</div>
     <div class="email-note">No spam. Unsubscribe anytime.</div>
   `;
-
   openPopup();
-
-  // Avoid iOS zoom by not auto-focusing. User taps field themselves.
 });
 
-// Submit via fetch (no redirect to JSON page)
 function submitEmail(){
   const emailEl = document.getElementById('popupEmail');
   const email = (emailEl && emailEl.value || '').trim();
@@ -247,7 +238,7 @@ function submitEmail(){
   // Close popup immediately for clean UX
   closePopup();
 
-  // Background subscribe (no page navigation)
+  // Background subscribe (no JSON redirect page)
   fetch("https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -266,7 +257,7 @@ function skipEmail(){
   redirectNow();
 }
 
-// Optional: tap outside closes popup (doesn't hurt CTR, but feels normal)
+// Tap outside closes popup (optional)
 overlay.addEventListener('click', (e) => {
   if(e.target === overlay){
     closePopup();
