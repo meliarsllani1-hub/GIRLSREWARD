@@ -90,50 +90,42 @@
     .proofGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
     .proofImg{width:100%;height:auto;border-radius:18px;box-shadow:0 14px 32px rgba(0,0,0,.12);}
     .fine{margin-top:12px;font-size:11.5px;color:#8a8a94;line-height:1.4;text-align:center;font-weight:600;padding:0 10px;}
-    /* POPUP – MAX GIRLY CONVERSION */
+    /* SIMPLIFIED, OPTIONAL-LOOKING POPUP */
     .email-overlay{
-      position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;
-      z-index:9999;padding:16px;backdrop-filter:blur(5px);
+      position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;
+      z-index:9999;padding:16px;backdrop-filter:blur(4px);
     }
     .email-box{
-      background:#fff;width:100%;max-width:390px;border-radius:30px;padding:32px 28px;text-align:center;
-      box-shadow:0 24px 60px rgba(255,102,178,.28);border:2px solid rgba(255,102,178,.18);position:relative;overflow:hidden;
-    }
-    .email-box::before{
-      content:"";position:absolute;top:0;left:0;right:0;height:130px;
-      background:linear-gradient(135deg, rgba(255,102,178,.14), rgba(255,63,161,.10));
-      border-radius:30px 30px 0 0;pointer-events:none;
+      background:#fff;width:100%;max-width:370px;border-radius:28px;padding:28px 24px;text-align:center;
+      box-shadow:0 20px 50px rgba(255,102,178,.22);border:2px solid rgba(255,102,178,.14);
     }
     .email-box h3{
-      margin:24px 0 10px;font-size:26px;font-weight:950;letter-spacing:-.5px;
+      margin:0 0 8px;font-size:24px;font-weight:950;letter-spacing:-.4px;
       background:linear-gradient(135deg, var(--pink), var(--pink2));
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     }
     .email-box p{
-      margin:0 0 20px;font-size:15px;color:#444;line-height:1.45;font-weight:600;
+      margin:0 0 18px;font-size:14.5px;color:#555;line-height:1.45;font-weight:600;
     }
     .email-box input{
-      width:100%;padding:18px 22px;border-radius:44px;border:2.5px solid #ffd6ee;font-size:16.5px;
-      margin-bottom:16px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.07);transition:border-color .3s;
+      width:100%;padding:16px 20px;border-radius:40px;border:2px solid #ffd6ee;font-size:16px;
+      margin-bottom:14px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.06);
     }
     .email-box input:focus{border-color:var(--pink);}
     .email-box button{
       width:100%;background:linear-gradient(135deg, var(--pink), var(--pink2));color:#fff;border:none;
-      border-radius:44px;padding:18px;font-size:18px;font-weight:950;box-shadow:0 16px 38px rgba(255,102,178,.32);
-      position:relative;overflow:hidden;
+      border-radius:40px;padding:16px;font-size:17px;font-weight:950;box-shadow:0 14px 34px rgba(255,102,178,.28);
     }
-    .email-box button::before{
-      content:"";position:absolute;top:-50%;left:-70%;width:65%;height:220%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
-      transform:rotate(18deg);animation:shimmer 3s infinite;pointer-events:none;
+    .email-box button:active{transform:scale(.98);}
+    .email-continue{
+      margin-top:22px;padding:14px;background:#f8f8fb;border-radius:40px;font-size:16px;font-weight:900;
+      color:var(--pink);cursor:pointer;
     }
-    .email-box button:active{transform:scale(.97);}
-    .email-skip{margin-top:20px;font-size:13.5px;color:#bbb;cursor:pointer;font-weight:700;opacity:.85;}
-    .email-skip:hover{color:#999;}
-    .email-note{margin-top:16px;font-size:12px;color:#999;line-height:1.4;font-weight:600;}
+    .email-continue:active{transform:scale(.98);background:#f0f0f5;}
+    .email-note{margin-top:14px;font-size:11.5px;color:#999;line-height:1.4;font-weight:600;}
     html.popup-open,body.popup-open{overflow:hidden;height:100%;}
     @media (prefers-reduced-motion: reduce){
-      .shein-btn::before,.shein-btn::after,.btnArrow,.email-box button::before{animation:none;}
+      .shein-btn::before,.shein-btn::after,.btnArrow{animation:none;}
     }
   </style>
 </head>
@@ -240,17 +232,18 @@
     }
     function handleContinueClick(e){
       e.preventDefault();
+      // Always redirect if already signed up
       if(localStorage.getItem('email_signed') === 'yes'){
         redirectNow();
         return;
       }
       box.innerHTML = `
-        <h3>One Quick Step, Babe! 🎀✨</h3>
-        <p>Enter your email to continue and see your personalized steps 💕<br>Super fast!</p>
+        <h3>Want more rewards, babe? 🎀</h3>
+        <p>Sign up for exclusive SHEIN deals, girl glow-up tips & future gift card drops 💕</p>
         <input type="email" id="popupEmail" placeholder="youremail@gmail.com ✉️" inputmode="email" autocomplete="email">
-        <button type="button" onclick="submitEmail()">Continue to My Reward 💗</button>
-        <div class="email-skip" onclick="skipEmail()">Skip for now</div>
-        <div class="email-note">We respect your privacy • No spam • Easy unsubscribe</div>
+        <button type="button" onclick="submitEmail()">Yes, Send Me Updates! 💗</button>
+        <div class="email-continue" onclick="skipEmail()">No thanks, continue to my reward</div>
+        <div class="email-note">We respect your privacy • No spam ever • Unsubscribe anytime</div>
       `;
       openPopup();
     }
@@ -281,7 +274,7 @@
       redirectNow();
     }
     overlay.addEventListener('click', (e) => {
-      if(e.target === overlay) closePopup();
+      if(e.target === overlay) skipEmail();
     });
   </script>
 </body>
