@@ -9,11 +9,7 @@
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
   <!-- ✅ Umami Analytics (NEW DOMAIN) -->
-  <script
-    defer
-    src="https://cloud.umami.is/script.js"
-    data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-  </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
   <style>
     :root{
       --pink:#ff66b2;
@@ -23,7 +19,6 @@
       --border:#ececf2;
       --card:#ffffff;
       --soft:#f7f7fb;
-      --shadow1: 0 14px 40px rgba(0,0,0,.10);
       --shadow2: 0 8px 24px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box;}
@@ -37,12 +32,7 @@
         radial-gradient(900px 420px at 15% 10%, rgba(255,102,178,.10), transparent 55%),
         linear-gradient(#fff, #fff);
     }
-    .wrap{
-      max-width:540px;
-      margin:0 auto;
-      padding:16px 14px 16px;
-    }
-    /* Top hero */
+    .wrap{max-width:540px;margin:0 auto;padding:16px 14px;}
     .hero{
       border:1px solid var(--border);
       background:linear-gradient(180deg, rgba(255,102,178,.10), rgba(255,102,178,.03) 55%, #fff);
@@ -50,353 +40,100 @@
       padding:16px;
       box-shadow:var(--shadow2);
     }
-    .brandRow{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-    .avatar{
-      width:56px;height:56px;border-radius:18px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:0 10px 26px rgba(0,0,0,.10);
-      flex:0 0 auto;
-    }
+    .brandRow{display:flex;align-items:center;gap:12px;}
+    .avatar{width:56px;height:56px;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.10);}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
-    .heroTitle{
-      margin:0;
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:-.25px;
-      line-height:1.15;
-    }
-    .heroSub{
-      margin:6px 0 0;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.35;
-      font-weight:600;
-    }
-    /* Steps (fast scan) */
-    .quick{
-      margin-top:12px;
-      display:grid;
-      gap:8px;
-    }
+    .heroTitle{margin:0;font-size:22px;font-weight:900;letter-spacing:-.3px;line-height:1.15;}
+    .heroSub{margin:8px 0 0;font-size:14px;color:var(--muted);line-height:1.4;font-weight:600;}
+    .quick{margin-top:16px;display:grid;gap:9px;}
     .pill{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.90);
-      border:1px solid var(--border);
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
-      font-size:13px;
-      color:#2a2a2f;
-      font-weight:600;
+      display:flex;gap:10px;align-items:center;padding:11px 13px;border-radius:999px;
+      background:rgba(255,255,255,.92);border:1px solid var(--border);
+      box-shadow:0 6px 18px rgba(0,0,0,.05);font-size:13.5px;color:#2a2a2f;font-weight:600;
     }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--pink);
-      box-shadow:0 0 0 6px rgba(255,102,178,.14);
-      flex:0 0 auto;
-    }
+    .dot{width:11px;height:11px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 6px rgba(255,102,178,.16);}
     .pill b{font-weight:900;}
-    /* Main CTA card */
-    .ctaCard{
-      margin-top:14px;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:26px;
-      padding:14px;
-      box-shadow:var(--shadow2);
-    }
-    /* CTR BUTTON */
+    .ctaCard{margin-top:16px;background:var(--card);border:1px solid var(--border);border-radius:26px;padding:16px;box-shadow:var(--shadow2);}
     .shein-btn{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap:12px;
-      padding:16px 14px;
-      border-radius:24px;
-      color:#fff;
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-      background:linear-gradient(135deg, var(--pink), var(--pink2));
-      box-shadow:0 16px 44px rgba(255,102,178,.34);
-      position:relative;
-      overflow:hidden;
-      transform: translateZ(0);
-      -webkit-tap-highlight-color: transparent;
+      width:100%;display:flex;align-items:center;gap:14px;padding:18px 16px;border-radius:26px;
+      color:#fff;text-decoration:none;background:linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow:0 18px 48px rgba(255,102,178,.36);position:relative;overflow:hidden;
+      transform:translateZ(0);-webkit-tap-highlight-color:transparent;
     }
-    /* shimmer sweep */
     .shein-btn::before{
-      content:"";
-      position:absolute;
-      top:-45%;
-      left:-70%;
-      width:55%;
-      height:200%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
-      transform:rotate(18deg);
-      animation:shimmer 2.6s infinite;
-      pointer-events:none;
+      content:"";position:absolute;top:-50%;left:-70%;width:60%;height:220%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.36), transparent);
+      transform:rotate(18deg);animation:shimmer 2.8s infinite;pointer-events:none;
     }
-    @keyframes shimmer{
-      0%{left:-80%;}
-      55%{left:130%;}
-      100%{left:130%;}
-    }
-    /* subtle pulse ring */
+    @keyframes shimmer{0%{left:-80%;}60%{left:130%;}100%{left:130%;}}
     .shein-btn::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:24px;
-      box-shadow:0 0 0 0 rgba(255,102,178,.35);
-      animation:pulse 2.3s infinite;
-      pointer-events:none;
+      content:"";position:absolute;inset:0;border-radius:26px;
+      box-shadow:0 0 0 0 rgba(255,102,178,.4);animation:pulse 2.4s infinite;pointer-events:none;
     }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}
-      70%{box-shadow:0 0 0 12px rgba(255,102,178,0);}
-      100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
-    }
-    .shein-btn:hover{filter:saturate(1.06);}
-    .shein-btn:active{transform:scale(.99);}
-    .btnIcon{
-      width:50px;height:50px;border-radius:18px;
-      background:rgba(255,255,255,.18);
-      box-shadow:0 12px 26px rgba(0,0,0,.12);
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .btnIcon img{width:100%;height:100%;object-fit:cover;display:block;}
-    .btnText{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      flex:1 1 auto;
-      min-width:0;
-    }
-    .btnText .top{
-      font-size:15px;
-      font-weight:950;
-      letter-spacing:-.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .btnText .sub{
-      margin-top:4px;
-      font-size:9.5px;
-      opacity:.85;
-      font-weight:600;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    /* arrow bounce */
-    .btnArrow{
-      margin-left:10px;
-      font-weight:1000;
-      font-size:22px;
-      opacity:.96;
-      flex:0 0 auto;
-      animation:nudge 1.1s infinite;
-    }
-    @keyframes nudge{
-      0%,100%{transform:translateX(0);}
-      50%{transform:translateX(3px);}
-    }
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,102,178,.4);}70%{box-shadow:0 0 0 14px rgba(255,102,178,0);}100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}}
+    .shein-btn:active{transform:scale(.98);}
+    .btnIcon{width:54px;height:54px;border-radius:20px;background:rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(0,0,0,.14);overflow:hidden;}
+    .btnIcon img{width:100%;height:100%;object-fit:cover;}
+    .btnText{flex:1;}
+    .btnText .top{font-size:16.5px;font-weight:950;letter-spacing:-.25px;}
+    .btnText .sub{margin-top:5px;font-size:10px;opacity:.88;font-weight:600;letter-spacing:.3px;}
+    .btnArrow{margin-left:auto;font-size:24px;opacity:.96;animation:nudge 1.2s infinite;}
+    @keyframes nudge{0%,100%{transform:translateX(0);}50%{transform:translateX(4px);}}
     .eligible-box{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:10px 12px;
-      font-size:13px;
-      font-weight:700;
-      color:#2b2b30;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      margin-top:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      background:#fff;border:1px solid var(--border);border-radius:18px;padding:12px 14px;
+      font-size:13.5px;font-weight:700;color:#2b2b30;text-align:center;margin-top:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.06);
     }
-    .trustRow{
-      margin-top:10px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      color:#7a7a86;
-      font-weight:700;
-      text-align:center;
-    }
-    /* Proof */
-    .proof{
-      margin-top:16px;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:26px;
-      padding:14px;
-      box-shadow:var(--shadow2);
-    }
-    .proofHead{
-      margin:0 0 10px;
-      text-align:center;
-      font-size:16px;
-      font-weight:950;
-      letter-spacing:-.2px;
-    }
-    .proofGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-    .proofImg{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:16px;
-      background:var(--soft);
-      box-shadow:0 12px 28px rgba(0,0,0,.10);
-    }
-    .fine{
-      margin-top:10px;
-      font-size:11px;
-      color:#8a8a94;
-      line-height:1.35;
-      text-align:center;
-      font-weight:600;
-      padding:0 8px;
-    }
-    /* ===== POPUP styles (IMPROVED FOR HIGHER CTR) ===== */
+    .trustRow{margin-top:12px;display:flex;justify-content:center;align-items:center;gap:8px;font-size:12.5px;color:#7a7a86;font-weight:700;}
+    .proof{margin-top:18px;background:var(--card);border:1px solid var(--border);border-radius:26px;padding:16px;box-shadow:var(--shadow2);}
+    .proofHead{margin:0 0 12px;text-align:center;font-size:17px;font-weight:950;letter-spacing:-.25px;}
+    .proofGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .proofImg{width:100%;height:auto;border-radius:18px;box-shadow:0 14px 32px rgba(0,0,0,.12);}
+    .fine{margin-top:12px;font-size:11.5px;color:#8a8a94;line-height:1.4;text-align:center;font-weight:600;padding:0 10px;}
+    /* POPUP – MAX GIRLY CONVERSION */
     .email-overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55); /* Darker overlay for more focus */
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:16px;
-      backdrop-filter: blur(4px); /* Subtle blur for premium feel */
+      position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;
+      z-index:9999;padding:16px;backdrop-filter:blur(5px);
     }
     .email-box{
-      background:#fff;
-      color:#000;
-      width:100%;
-      max-width:380px; /* Slightly wider for better layout */
-      border-radius:28px; /* Softer, more girly corners */
-      padding:28px 24px;
-      text-align:center;
-      box-shadow:0 20px 50px rgba(255,102,178,.25); /* Pink-tinted shadow */
-      border:2px solid rgba(255,102,178,.15);
-      position:relative;
-      overflow:hidden;
+      background:#fff;width:100%;max-width:390px;border-radius:30px;padding:32px 28px;text-align:center;
+      box-shadow:0 24px 60px rgba(255,102,178,.28);border:2px solid rgba(255,102,178,.18);position:relative;overflow:hidden;
     }
     .email-box::before{
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0;
-      height:120px;
-      background:linear-gradient(135deg, rgba(255,102,178,.12), rgba(255,63,161,.08));
-      border-radius:28px 28px 0 0;
-      pointer-events:none;
+      content:"";position:absolute;top:0;left:0;right:0;height:130px;
+      background:linear-gradient(135deg, rgba(255,102,178,.14), rgba(255,63,161,.10));
+      border-radius:30px 30px 0 0;pointer-events:none;
     }
     .email-box h3{
-      margin:20px 0 8px;
-      font-size:24px; /* Bigger, more exciting */
-      font-weight:950;
-      letter-spacing:-.4px;
+      margin:24px 0 10px;font-size:26px;font-weight:950;letter-spacing:-.5px;
       background:linear-gradient(135deg, var(--pink), var(--pink2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      position:relative;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     }
     .email-box p{
-      margin:0 0 18px;
-      font-size:14.5px;
-      color:#444;
-      line-height:1.4;
-      font-weight:600;
+      margin:0 0 20px;font-size:15px;color:#444;line-height:1.45;font-weight:600;
     }
     .email-box input{
-      width:100%;
-      padding:16px 20px;
-      border-radius:40px; /* Pill-shaped for cuteness */
-      border:2px solid #ffd1ea;
-      font-size:16px;
-      margin-bottom:14px;
-      outline:none;
-      font-family:'Montserrat',sans-serif;
-      background:#fff;
-      box-shadow:0 8px 20px rgba(0,0,0,.06);
-      transition:border-color .3s;
+      width:100%;padding:18px 22px;border-radius:44px;border:2.5px solid #ffd6ee;font-size:16.5px;
+      margin-bottom:16px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.07);transition:border-color .3s;
     }
-    .email-box input:focus{
-      border-color:var(--pink);
-    }
+    .email-box input:focus{border-color:var(--pink);}
     .email-box button{
-      width:100%;
-      background:linear-gradient(135deg, var(--pink), var(--pink2));
-      color:#fff;
-      border:none;
-      border-radius:40px;
-      padding:16px;
-      font-size:17px;
-      font-weight:950;
-      cursor:pointer;
-      box-shadow:0 14px 34px rgba(255,102,178,.30);
-      font-family:'Montserrat',sans-serif;
-      position:relative;
-      overflow:hidden;
+      width:100%;background:linear-gradient(135deg, var(--pink), var(--pink2));color:#fff;border:none;
+      border-radius:44px;padding:18px;font-size:18px;font-weight:950;box-shadow:0 16px 38px rgba(255,102,178,.32);
+      position:relative;overflow:hidden;
     }
     .email-box button::before{
-      content:"";
-      position:absolute;
-      top:-50%; left:-70%;
-      width:60%;
-      height:200%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-      transform:rotate(18deg);
-      animation:shimmer 2.8s infinite;
-      pointer-events:none;
+      content:"";position:absolute;top:-50%;left:-70%;width:65%;height:220%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
+      transform:rotate(18deg);animation:shimmer 3s infinite;pointer-events:none;
     }
-    .email-box button:active{transform:scale(.98);}
-    .email-skip{
-      margin-top:18px;
-      font-size:13px;
-      color:#aaa;
-      cursor:pointer;
-      user-select:none;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.8px;
-      opacity:.8;
-    }
-    .email-skip:hover{color:#888;}
-    .email-note{
-      margin-top:14px;
-      font-size:11.5px;
-      color:#999;
-      line-height:1.4;
-      font-weight:600;
-    }
-    html.popup-open, body.popup-open{
-      overflow:hidden;
-      height:100%;
-    }
+    .email-box button:active{transform:scale(.97);}
+    .email-skip{margin-top:20px;font-size:13.5px;color:#bbb;cursor:pointer;font-weight:700;opacity:.85;}
+    .email-skip:hover{color:#999;}
+    .email-note{margin-top:16px;font-size:12px;color:#999;line-height:1.4;font-weight:600;}
+    html.popup-open,body.popup-open{overflow:hidden;height:100%;}
     @media (prefers-reduced-motion: reduce){
       .shein-btn::before,.shein-btn::after,.btnArrow,.email-box button::before{animation:none;}
-      .shein-btn{transition:none;}
     }
   </style>
 </head>
@@ -409,24 +146,23 @@
         </div>
         <div>
           <h1 class="heroTitle">$750 SHEIN Gift Card ✨</h1>
-          <p class="heroSub">Tap Continue To Start. Follow The Steps On The Next Page To Complete The Process.</p>
+          <p class="heroSub">Tap continue to see if you qualify and start the process 💕</p>
         </div>
       </div>
       <div class="quick">
-        <div class="pill"><span class="dot"></span><span><b>Step 1:</b> Tap <b>Continue</b> Below</span></div>
-        <div class="pill"><span class="dot"></span><span><b>Step 2:</b> Enter Your Email & Basic Info</span></div>
-        <div class="pill"><span class="dot"></span><span><b>Step 3:</b> Complete The Recommended Deals To Finish</span></div>
+        <div class="pill"><span class="dot"></span><span><b>Step 1:</b> Tap <b>Continue</b> below</span></div>
+        <div class="pill"><span class="dot"></span><span><b>Step 2:</b> Answer a few quick questions</span></div>
+        <div class="pill"><span class="dot"></span><span><b>Step 3:</b> Complete the required steps to claim</span></div>
       </div>
     </div>
     <div class="ctaCard">
-      <!-- CTA -->
       <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
         <div class="btnIcon">
           <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" alt="SHEIN"/>
         </div>
         <div class="btnText">
-          <div class="top" id="giftcard-text">Continue To $750 SHEIN Gift Card </div>
-          <div class="sub">Tap To Continue • Takes You To The Next Step</div>
+          <div class="top">Continue to $750 SHEIN Gift Card</div>
+          <div class="sub">Tap here • Next step loads instantly</div>
         </div>
         <div class="btnArrow">›</div>
       </a>
@@ -434,24 +170,22 @@
       <div class="trustRow"><span>🔒</span><span>Secure Connection • Trusted Partners</span></div>
     </div>
     <div class="proof">
-      <h2 class="proofHead">Real Rewards Shown By Users 👇</h2>
+      <h2 class="proofHead">Real Users Who Completed the Steps 👇🏼</h2>
       <div class="proofGrid">
         <img class="proofImg" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="proof 1"/>
         <img class="proofImg" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="proof 2"/>
       </div>
       <div class="fine">
-        Results Vary. Completing Recommended Deals May Be Required To Finish The Process Shown On The Next Page.
+        Individual results may vary. Participation requires completing the steps shown on the next page.
       </div>
     </div>
   </div>
-  <!-- POPUP markup -->
   <div class="email-overlay" id="emailOverlay" aria-hidden="true">
     <div class="email-box" id="emailBox"></div>
   </div>
   <script>
     const eligibleBox = document.getElementById('eligible-box');
     const btn = document.getElementById('shein-btn');
-    // ✅ LINKS UNCHANGED
     const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
     const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
     const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
@@ -487,7 +221,6 @@
             btn.dataset.redirect = linkRest;
           });
       });
-    /* FIX #1: Popup + one-time signup (RESTORED) */
     const overlay = document.getElementById('emailOverlay');
     const box = document.getElementById('emailBox');
     function openPopup(){
@@ -507,18 +240,17 @@
     }
     function handleContinueClick(e){
       e.preventDefault();
-      // If already signed up once -> NO POPUP, go straight to offer
       if(localStorage.getItem('email_signed') === 'yes'){
         redirectNow();
         return;
       }
       box.innerHTML = `
-        <h3>Almost There, Bestie! 🎀💕</h3>
-        <p>Enter your email to unlock your $750 SHEIN gift card ✨<br>Takes 5 seconds!</p>
+        <h3>One Quick Step, Babe! 🎀✨</h3>
+        <p>Enter your email to continue and see your personalized steps 💕<br>Super fast!</p>
         <input type="email" id="popupEmail" placeholder="youremail@gmail.com ✉️" inputmode="email" autocomplete="email">
-        <button type="button" onclick="submitEmail()">Claim My Gift Card 💗</button>
+        <button type="button" onclick="submitEmail()">Continue to My Reward 💗</button>
         <div class="email-skip" onclick="skipEmail()">Skip for now</div>
-        <div class="email-note">We respect your privacy • No spam ever • Instant unsubscribe</div>
+        <div class="email-note">We respect your privacy • No spam • Easy unsubscribe</div>
       `;
       openPopup();
     }
@@ -530,11 +262,8 @@
         if(emailEl) emailEl.style.borderColor = '#ff3399';
         return;
       }
-      // Mark as signed before redirect so popup never appears again for that device
       localStorage.setItem('email_signed','yes');
-      // Close popup immediately for clean UX
       closePopup();
-      // Background subscribe (no JSON redirect page)
       fetch("https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -551,7 +280,6 @@
       closePopup();
       redirectNow();
     }
-    // Tap outside closes popup
     overlay.addEventListener('click', (e) => {
       if(e.target === overlay) closePopup();
     });
