@@ -73,50 +73,42 @@ body{
   opacity:.9;
 }
 
-/* INLINE EMAIL – FINAL MICRO-TUNED */
+/* INLINE EMAIL */
 .inline-email{
   max-width:500px;
   margin:4px auto 10px;
-  padding:0 8px; /* breathing room */
+  padding:0 8px;
   text-align:center;
   opacity:0.95;
 }
-
 .inline-text{
   font-size:13px;
   color:#555;
   margin-bottom:6px;
   font-weight:500;
 }
-
 .inline-pill{
   display:flex;
   align-items:center;
-  justify-content:center;
   width:100%;
   max-width:500px;
   margin:0 auto;
-  padding:3px;              /* 1px smaller */
+  padding:3px;
   border-radius:50px;
   border:1px solid #eee;
-  background:#fff;
-  box-sizing:border-box;
 }
-
 .inline-pill input{
   flex:1;
   border:none;
   outline:none;
-  padding:12px 15px;        /* 1px smaller */
+  padding:12px 15px;
   font-size:13.5px;
   font-family:'Montserrat',sans-serif;
   text-align:center;
-  background:transparent;
 }
-
 .inline-pill button{
-  padding:0 17px;           /* 1px smaller */
-  height:41px;              /* 1px smaller */
+  padding:0 17px;
+  height:41px;
   border-radius:50px;
   border:none;
   background:#ffd1e8;
@@ -124,9 +116,7 @@ body{
   font-size:13.5px;
   font-weight:700;
   cursor:pointer;
-  white-space:nowrap;
 }
-
 .note{
   font-size:11px;
   color:#888;
@@ -158,19 +148,30 @@ body{
   margin-top:12px;
 }
 
+/* PROOF (SIDE-BY-SIDE, LOW SCROLL) */
 .proof-headline{
-  font-size:18px;
-  font-weight:700;
+  font-size:15px;
+  font-weight:500; /* NOT bold */
   text-align:center;
-  margin-top:40px;
+  margin-top:36px;
+  margin-bottom:12px;
+  color:#333;
+}
+
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  max-width:500px;
+  margin:0 auto;
+  padding:0 8px;
 }
 
 .proof-image{
   width:100%;
-  max-width:400px;
   border-radius:10px;
   display:block;
-  margin:0 auto 20px;
+  box-shadow:0 6px 24px rgba(0,0,0,.11);
 }
 </style>
 </head>
@@ -213,9 +214,12 @@ body{
 <div class="eligible-box" id="eligible-box">Checking eligibility...</div>
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 
-<div class="proof-headline">Real Rewards. Real People. 👇</div>
-<img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
-<img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
+<!-- PROOF -->
+<div class="proof-headline">Real Rewards Shown By Users 👇</div>
+<div class="proof-grid">
+  <img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
+  <img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
+</div>
 
 <script>
 const eligibleBox=document.getElementById('eligible-box');
