@@ -74,10 +74,10 @@
     .shein-btn:active{transform:scale(.97);}
     .btnIcon{width:58px;height:58px;border-radius:22px;background:rgba(255,255,255,.22);box-shadow:0 14px 32px rgba(0,0,0,.16);overflow:hidden;}
     .btnIcon img{width:100%;height:100%;object-fit:cover;}
-    .btnText{flex:1;}
-    .btnText .top{font-size:18px;font-weight:950;letter-spacing:-.3px;}
-    .btnText .sub{margin-top:6px;font-size:10.5px;opacity:.9;font-weight:600;letter-spacing:.3px;}
-    .btnArrow{margin-left:auto;font-size:26px;opacity:.96;animation:nudge 1.2s infinite;}
+    .btnText{flex:1;display:flex;flex-direction:column;justify-content:center;}
+    .btnText .top{font-size:17.5px;font-weight:950;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .btnText .sub{margin-top:5px;font-size:10.8px;opacity:.9;font-weight:600;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .btnArrow{margin-left:auto;font-size:26px;opacity:.96;animation:nudge 1.2s infinite;flex-shrink:0;}
     @keyframes nudge{0%,100%{transform:translateX(0);}50%{transform:translateX(5px);}}
     .eligible-box{
       background:#fff;border:1px solid var(--border);border-radius:20px;padding:14px 16px;
@@ -120,7 +120,7 @@
         </div>
         <div class="btnText">
           <div class="top">Continue to My $750 SHEIN Gift Card</div>
-          <div class="sub">Tap here babe • Next step loads instantly 💗</div>
+          <div class="sub">Tap here babe • Loads instantly 💗</div>
         </div>
         <div class="btnArrow">›</div>
       </a>
