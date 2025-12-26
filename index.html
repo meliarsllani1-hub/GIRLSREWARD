@@ -101,39 +101,31 @@ body{
   margin-top:48px;
   margin-bottom:16px;
 }
-.proof-image{
-  width:100%;
-  max-width:400px;
-  border-radius:10px;
-  box-shadow:0 6px 24px rgba(0,0,0,.11);
-  background:#f8f8f8;
-  height:auto;
-}
-/* Fixed: Horizontal proof images – forced side-by-side */
+/* Fixed: Smaller proof images that always fit side-by-side without horizontal scroll */
 .proof-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* bigger gap for breathing room */
+  gap: 12px;
   margin: 0 auto 40px auto;
-  padding: 0 15px;
-  flex-wrap: nowrap; /* no wrapping – force side-by-side */
-  overflow-x: auto; /* scroll horizontally if screen too narrow */
-  -ms-overflow-style: none; /* hide scrollbar IE/Edge */
-  scrollbar-width: none; /* hide scrollbar Firefox */
+  padding: 0 10px;
+  max-width: 100%;
 }
-.proof-row::-webkit-scrollbar { display: none; } /* hide scrollbar Chrome/Safari */
 .proof-row img {
-  flex: 1 1 45%; /* each takes ~45% */
-  min-width: 280px; /* minimum size so they don't shrink too much */
-  max-width: 380px;
+  width: 48%;           /* each takes less than half */
+  max-width: 220px;     /* cap size so they stay small and fit */
   border-radius: 10px;
   box-shadow: 0 6px 24px rgba(0,0,0,.11);
+  object-fit: cover;    /* keeps aspect ratio nice */
 }
-/* On very small screens, allow horizontal scroll instead of stack */
-@media (max-width: 600px) {
+/* Mobile fallback – still side-by-side on most phones, stack only on very tiny screens */
+@media (max-width: 480px) {
   .proof-row {
-    justify-content: flex-start; /* left align for scrolling */
+    flex-direction: column;
+  }
+  .proof-row img {
+    width: 100%;
+    max-width: 300px;
   }
 }
 </style>
@@ -171,7 +163,7 @@ body{
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 
-<!-- Fixed horizontal proof row -->
+<!-- Smaller side-by-side proofs – no horizontal scroll needed -->
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="Proof 1"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="Proof 2"/>
