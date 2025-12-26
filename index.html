@@ -19,25 +19,30 @@
 
 <style>
 body{
-  background:#ffd6e7; /* soft pink background */
+  background:#ffd6e7;
   margin:0;
   font-family:'Montserrat',sans-serif;
   color:#000;
 }
 
-/* steps box stays same size + style */
+/* --- steps box styled like a card --- */
 .steps-box{
+  background:#fff;
   color:#000;
-  padding:20px;
+  padding:22px;
   font-size:17px;
   text-align:center;
   line-height:1.6;
   max-width:500px;
   margin:20px auto;
+  border-radius:20px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
   box-sizing:border-box;
+  font-weight:500;
 }
+.steps-box p{margin:14px 0;}
 
-/* CTA stays same */
+/* --- CTA stays same --- */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
@@ -61,26 +66,51 @@ body{
   animation:sheinPulse 2.2s infinite;
   text-decoration:none;
 }
-
 .shein-btn:hover{transform:scale(1.05);}
-
 @keyframes sheinPulse{
   0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}
   70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}
   100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
+}
+
+/* --- proof styling back --- */
+.proof-headline{
+  font-size:18px;
+  font-weight:700;
+  color:#222;
+  text-align:center;
+  margin-top:48px;
+  margin-bottom:16px;
+}
+.proof-image{
+  width:100%;
+  max-width:400px;
+  border-radius:10px;
+  display:block;
+  margin:0 auto 20px auto;
+  box-shadow:0 6px 24px rgba(0,0,0,.11);
+  background:#f8f8f8;
+  height:auto;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER stays -->
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:15px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
 </div>
 
-<!-- CTA here ABOVE steps, unchanged -->
+<!-- STEPS FIRST now, in box -->
+<div class="steps-box">
+  <p>1. Click The Link Below👇</p>
+  <p>2. Enter Your Email &amp; Basic Info</p>
+  <p>3. Complete Recommended Deals</p>
+  <p>4. Claim Your Gift Card!</p>
+</div>
+
+<!-- CTA BELOW STEPS now -->
 <a
   href="#"
   id="shein-btn"
@@ -94,15 +124,10 @@ body{
   </div>
 </a>
 
-<!-- steps below exactly same logic & spacing -->
-<div class="steps-box">
-  <p>1. Click The Link Below👇</p>
-  <p>2. Enter Your Email &amp; Basic Info</p>
-  <p>3. Complete Recommended Deals</p>
-  <p>4. Claim Your Gift Card!</p>
-</div>
-
-<!-- EVERYTHING BELOW removed: eligible box, trust text, proof section -->
+<!-- PROOF SECTION BACK IN -->
+<div class="proof-headline">Real Rewards. Real People. 👇</div>
+<img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
+<img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
 
 <script>
 /* GEO + TRACKING LOGIC UNTOUCHED */
