@@ -21,7 +21,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .steps-box p{margin:16px 0;}
 
-/* ⭐ BUTTON — more clickable: stronger pulse, thicker border, slight depth */
+/* ⭐ BUTTON — final CTR build */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
@@ -38,16 +38,14 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   box-sizing:border-box;
   transition:transform .18s ease, box-shadow .25s ease;
   text-decoration:none;
-  border:4px solid #ffb3d6;                 /* stronger border = more button feel */
+  border:4px solid #ffb3d6;
   animation:sheinPulse 2.8s infinite ease-in-out;
-  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.08); /* subtle depth */
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.08);
 }
 .shein-btn:hover{
   transform:scale(1.07);
   box-shadow:0 10px 26px rgba(255,102,178,.35);
 }
-
-/* pulse */
 @keyframes sheinPulse{
   0%,100%{box-shadow:0 0 0 rgba(255,102,178,0);}
   50%{box-shadow:0 0 18px rgba(255,102,178,.35);}
@@ -57,6 +55,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   width:46px;height:46px;border-radius:50%;margin-right:18px;
 }
 
+/* centers inner text without touching image */
 .text-container{
   display:flex;
   flex-direction:column;
@@ -70,23 +69,30 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* 🌍 GEO TEXT — moved closer to button */
+/* 🌍 GEO — final build */
 .geo-text{
-  font-size:15px;
-  font-weight:700;
+  font-size:16px;
+  font-weight:800;
+  text-transform:uppercase;
   color:#ff66b2;
   text-align:center;
   max-width:500px;
-  margin:18px auto -4px auto;    /* moved lower */
+  margin:18px auto -4px auto;
   letter-spacing:-0.2px;
 }
+.geo-text::after{
+  content:"👇";
+  display:block;
+  margin-top:6px;
+  font-size:20px;
+}
 
-/* trust + proof */
+/* trust + proofs */
 .trust-text{text-align:center;font-size:12px;color:#888;margin-top:12px;margin-bottom:0;font-weight:500;max-width:500px;margin-left:auto;margin-right:auto;}
 
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
 
-/* 📸 BIGGER BUT NOT TOO BIG */
+/* 📸 proofs — bigger but balanced */
 .proof-row{
   display:flex;
   justify-content:center;
@@ -96,8 +102,8 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   margin:0 auto 40px auto;
 }
 .proof-row img{
-  width:47%;           /* bit larger */
-  max-width:210px;     /* balanced */
+  width:47%;
+  max-width:210px;
   border-radius:10px;
   box-shadow:0 6px 24px rgba(0,0,0,.11);
   object-fit:cover;
@@ -119,7 +125,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-  <p style="font-size:15px;color:#6D6D6D;margin:0;">Complete the steps below</p>
+  <p style="font-size:15px;color:#6D6D6D;margin:0;">Just one tap away 👇</p>
 </div>
 
 <!-- STEPS -->
