@@ -8,14 +8,12 @@
 <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link crossorigin href="https://i.postimg.cc" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
-
 <!-- ✅ Umami Analytics -->
 <script
   defer
   src="https://cloud.umami.is/script.js"
   data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
 </script>
-
 <style>
 body{
   background:#fff;
@@ -34,7 +32,6 @@ body{
   box-sizing:border-box;
 }
 .steps-box p{margin:16px 0;}
-
 /* ⭐ Button – back to your style, centered */
 .shein-btn{
   background:#ff66b2;
@@ -67,7 +64,6 @@ body{
   70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}
   100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
 }
-
 .text-container span:first-child{
   font-size:16px;
   font-weight:500;
@@ -77,7 +73,6 @@ body{
   margin-top:4px;
   opacity:.9;
 }
-
 /* 🌍 Static geo text instead of box */
 .geo-text{
   font-size:14px;
@@ -87,7 +82,6 @@ body{
   max-width:500px;
   margin:4px auto 4px auto;
 }
-
 .trust-text{
   text-align:center;
   font-size:12px;
@@ -111,23 +105,39 @@ body{
   width:100%;
   max-width:400px;
   border-radius:10px;
-  display:block;
-  margin:0 auto 20px auto;
   box-shadow:0 6px 24px rgba(0,0,0,.11);
   background:#f8f8f8;
   height:auto;
 }
+/* New: Horizontal proof images row */
+.proof-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* space between images */
+  margin: 0 auto 30px auto;
+  max-width: 800px;
+  padding: 0 10px;
+  flex-wrap: wrap; /* stack on very small screens if needed */
+}
+.proof-row img {
+  width: 48%; /* roughly half each, with gap */
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.11);
+}
+@media (max-width: 480px) {
+  .proof-row img {
+    width: 100%; /* stack vertically on tiny phones */
+  }
+}
 </style>
 </head>
 <body>
-
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-  <!-- Removed “Higher value deals = faster rewards!” only from header -->
   <p style="font-size:15px;color:#6D6D6D;margin:0;">Complete the steps below</p>
 </div>
-
 <div class="steps-box">
   <p>1. Click The Link Below👇</p>
   <p>2. Enter Your Email &amp; Basic Info</p>
@@ -136,10 +146,8 @@ body{
   </p>
   <p>4. Claim Your Gift Card!</p>
 </div>
-
 <!-- 🌍 Geo / special access text -->
 <div id="geoLine" class="geo-text">Checking eligibility…</div>
-
 <!-- ✅ CTR tracked CTA -->
 <a
   href="#"
@@ -154,32 +162,30 @@ body{
     <span class="subtext">(Enter Email &amp; Complete Deals)</span>
   </div>
 </a>
-
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
-
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
-<img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
-<img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
+
+<!-- New: Horizontal row for the two proof images -->
+<div class="proof-row">
+  <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="Proof 1"/>
+  <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="Proof 2"/>
+</div>
 
 <script>
 const geoLine=document.getElementById('geoLine');
 const btn=document.getElementById('shein-btn');
-
 const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
 const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
-
 function countryCodeToFlagEmoji(cc){
   if(!cc || cc.length!==2) return "";
   return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
 }
-
 function setGeo(cc, cn){
   cc = (cc || "").toUpperCase();
   const flag = countryCodeToFlagEmoji(cc);
-
   if(cc==="US"){
     geoLine.textContent = `${flag || "🇺🇸"} United States has special access`;
     btn.href = linkUS;
@@ -197,7 +203,6 @@ function setGeo(cc, cn){
     btn.href = linkRest;
   }
 }
-
 // First try ipapi
 fetch('https://ipapi.co/json/')
   .then(r => r.ok ? r.json() : Promise.reject())
@@ -225,6 +230,5 @@ fetch('https://ipapi.co/json/')
       });
   });
 </script>
-
 </body>
 </html>
