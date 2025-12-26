@@ -9,12 +9,8 @@
 <link crossorigin href="https://i.postimg.cc" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
 
-<!-- ✅ Umami Analytics -->
-<script
-  defer
-  src="https://cloud.umami.is/script.js"
-  data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-</script>
+<!-- Umami -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
 <style>
 body{
@@ -35,42 +31,64 @@ body{
 }
 .steps-box p{margin:16px 0;}
 
-/* ⭐ Button – back to your style, centered */
+/* ⭐ Button – centered + micro boost */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
-  padding:14px 20px;
+  padding:16px 22px;
   font-size:15px;
-  border:2px solid #fff;
   cursor:pointer;
   display:flex;
   align-items:center;
-  justify-content:center; /* center content instead of left */
+  justify-content:center;
   border-radius:50px;
   font-family:'Montserrat',sans-serif;
   width:100%;
   max-width:500px;
   margin:8px auto 14px auto;
   box-sizing:border-box;
-  transition:transform .2s;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  animation:sheinPulse 2.2s infinite;
   text-decoration:none;
+
+  /* micro boost effects */
+  border:2px solid rgba(255,102,178,0.4);
+  transition:transform .18s ease, box-shadow .25s ease;
+  animation:sheinPulse 3s infinite ease-in-out;
+  position:relative;
+}
+
+/* ✨ shimmer overlay on hover */
+.shein-btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:200%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  transition:0.8s;
+  border-radius:50px;
+  pointer-events:none;
+}
+.shein-btn:hover::after{
+  left:100%;
 }
 .shein-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.06);
+  box-shadow:0 8px 22px rgba(255,102,178,.35);
 }
+
+/* 🌸 Soft pulse */
 @keyframes sheinPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}
-  70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
+  0%,100%{box-shadow:0 0 0 rgba(255,102,178,0.1);}
+  50%{box-shadow:0 0 14px rgba(255,102,178,.35);}
 }
 
 .text-container span:first-child{
   font-size:16px;
-  font-weight:500;
+  font-weight:600;
 }
 .subtext{
   font-size:11px;
@@ -78,14 +96,22 @@ body{
   opacity:.9;
 }
 
-/* 🌍 Static geo text instead of box */
+/* 🌍 Personalized eligibility text */
 .geo-text{
   font-size:14px;
   font-weight:600;
   color:#ff66b2;
   text-align:center;
   max-width:500px;
-  margin:4px auto 4px auto;
+  margin:6px auto 8px auto;
+  transition:color .2s ease;
+}
+
+/* 🩷 micro underline hover CTA pull */
+.geo-text:hover{
+  color:#ff4fa7;
+  text-decoration:underline;
+  text-underline-offset:4px;
 }
 
 .trust-text{
@@ -124,7 +150,6 @@ body{
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-  <!-- Removed “Higher value deals = faster rewards!” only from header -->
   <p style="font-size:15px;color:#6D6D6D;margin:0;">Complete the steps below</p>
 </div>
 
@@ -137,19 +162,12 @@ body{
   <p>4. Claim Your Gift Card!</p>
 </div>
 
-<!-- 🌍 Geo / special access text -->
+<!-- 🌍 Special access line -->
 <div id="geoLine" class="geo-text">Checking eligibility…</div>
 
-<!-- ✅ CTR tracked CTA -->
-<a
-  href="#"
-  id="shein-btn"
-  class="shein-btn"
-  data-umami-event="offer-click"
->
-  <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"
-       style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
-  <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;">
+<!-- ⭐ CTA -->
+<a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
+  <div class="text-container" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
     <span>Continue To SHEIN Gift Card</span>
     <span class="subtext">(Enter Email &amp; Complete Deals)</span>
   </div>
@@ -176,54 +194,19 @@ function countryCodeToFlagEmoji(cc){
   return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
 }
 
-function setGeo(cc, cn){
+function setGeo(cc){
   cc = (cc || "").toUpperCase();
-  const flag = countryCodeToFlagEmoji(cc);
-
-  if(cc==="US"){
-    geoLine.textContent = `${flag || "🇺🇸"} United States has special access`;
-    btn.href = linkUS;
-  } else if(cc==="CA"){
-    geoLine.textContent = `${flag || "🇨🇦"} Canada has special access`;
-    btn.href = linkCA;
-  } else if(cc==="GB"){
-    geoLine.textContent = `${flag || "🇬🇧"} United Kingdom has special access`;
-    btn.href = linkGB;
-  } else if(cc==="AU"){
-    geoLine.textContent = `${flag || "🇦🇺"} Australia has special access`;
-    btn.href = linkAU;
-  } else {
-    geoLine.textContent = `🌍 Available worldwide`;
-    btn.href = linkRest;
-  }
+  if(cc==="US"){ geoLine.textContent = `🇺🇸 United States has special access`; btn.href=linkUS; }
+  else if(cc==="CA"){ geoLine.textContent = `🇨🇦 Canada has special access`; btn.href=linkCA; }
+  else if(cc==="GB"){ geoLine.textContent = `🇬🇧 United Kingdom has special access`; btn.href=linkGB; }
+  else if(cc==="AU"){ geoLine.textContent = `🇦🇺 Australia has special access`; btn.href=linkAU; }
+  else{ geoLine.textContent=`🌍 Available worldwide`; btn.href=linkRest; }
 }
 
-// First try ipapi
 fetch('https://ipapi.co/json/')
-  .then(r => r.ok ? r.json() : Promise.reject())
-  .then(d => {
-    if(d && d.country){
-      setGeo(d.country, d.country_name);
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(() => {
-    // Fallback to ipwho.is
-    fetch('https://ipwho.is/')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(d => {
-        if(d && d.country_code){
-          setGeo(d.country_code, d.country);
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(() => {
-        geoLine.textContent = "🌍 Available worldwide";
-        btn.href = linkRest;
-      });
-  });
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(d=>setGeo(d.country))
+  .catch(()=>setGeo());
 </script>
 
 </body>
