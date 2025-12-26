@@ -10,15 +10,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Umami -->
+<!-- Umami Analytics -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
 <style>
 body {
-  background:#fce6ef; /* soft girly pink */
+  background:#fce6ef;
   margin:0;
   font-family:'Montserrat',sans-serif;
-  color:#fff; /* white text */
+  color:#000;
   text-align:center;
 }
 
@@ -27,7 +27,7 @@ body {
   background:#ff66b2;
   color:#fff;
   padding:16px 22px;
-  font-size:16px;
+  font-size:17px;
   border:none;
   cursor:pointer;
   display:flex;
@@ -40,6 +40,7 @@ body {
   text-decoration:none;
   font-weight:600;
   animation:sheinPulse 2.2s infinite;
+  text-transform:capitalize;
 }
 
 @keyframes sheinPulse {
@@ -48,16 +49,19 @@ body {
   100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
 }
 
+/* STEPS */
 .steps-box{
   padding:20px;
-  font-size:17px;
+  font-size:18px;
   line-height:1.6;
   max-width:450px;
   margin:0 auto;
+  font-weight:500;
 }
 
 .steps-box p{margin:15px 0;}
 
+/* HEADER */
 .header-block img{
   width:85px;
   height:85px;
@@ -66,7 +70,7 @@ body {
 }
 
 .header-block h1{
-  font-size:22px;
+  font-size:24px;
   font-weight:600;
   margin:0;
 }
@@ -80,24 +84,24 @@ body {
   <h1>Claim Your $750 SHEIN Gift Card</h1>
 </div>
 
-<!-- CTA above steps -->
+<!-- CTA ABOVE STEPS -->
 <a
   href="#"
   id="shein-btn"
   class="shein-btn"
   data-umami-event="offer-click">
-  Get Started
+  continue
 </a>
 
 <div class="steps-box">
-  <p>1. Tap Button</p>
+  <p>1. Tap Continue</p>
   <p>2. Enter Email</p>
   <p>3. Complete Deals</p>
   <p>4. Claim Reward 🎁</p>
 </div>
 
 <script>
-/* ---- FULL GEO LOGIC KEPT ---- */
+/* FULL GEO LOGIC — DO NOT TOUCH */
 const btn=document.getElementById('shein-btn');
 
 const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
