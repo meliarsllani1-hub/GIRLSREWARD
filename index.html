@@ -8,12 +8,14 @@
 <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link crossorigin href="https://i.postimg.cc" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
+
 <!-- ✅ Umami Analytics -->
 <script
   defer
   src="https://cloud.umami.is/script.js"
   data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
 </script>
+
 <style>
 body{
   background:#fff;
@@ -21,6 +23,7 @@ body{
   font-family:'Montserrat',sans-serif;
   color:#000;
 }
+
 .steps-box{
   color:#000;
   padding:20px;
@@ -32,7 +35,8 @@ body{
   box-sizing:border-box;
 }
 .steps-box p{margin:16px 0;}
-/* ⭐ Button – back to your style, centered */
+
+/* ⭐ Button – centered clean layout */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
@@ -64,6 +68,7 @@ body{
   70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}
   100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
 }
+
 .text-container span:first-child{
   font-size:16px;
   font-weight:500;
@@ -73,7 +78,8 @@ body{
   margin-top:4px;
   opacity:.9;
 }
-/* 🌍 Static geo text instead of box */
+
+/* 🌍 Special access / worldwide text */
 .geo-text{
   font-size:14px;
   font-weight:600;
@@ -82,6 +88,8 @@ body{
   max-width:500px;
   margin:4px auto 4px auto;
 }
+
+/* 🔒 Trust line */
 .trust-text{
   text-align:center;
   font-size:12px;
@@ -93,6 +101,8 @@ body{
   margin-left:auto;
   margin-right:auto;
 }
+
+/* 🧾 Proof headline */
 .proof-headline{
   font-size:18px;
   font-weight:700;
@@ -101,41 +111,45 @@ body{
   margin-top:48px;
   margin-bottom:16px;
 }
-/* Fixed: Smaller proof images that always fit side-by-side without horizontal scroll */
+
+/* 📸 proof images small + guaranteed side-by-side */
 .proof-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  max-width:500px;
   margin: 0 auto 40px auto;
-  padding: 0 10px;
-  max-width: 100%;
+  padding: 0;
 }
+
 .proof-row img {
-  width: 48%;           /* each takes less than half */
-  max-width: 220px;     /* cap size so they stay small and fit */
-  border-radius: 10px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.11);
-  object-fit: cover;    /* keeps aspect ratio nice */
+  width: 46%;
+  max-width:160px;
+  border-radius:10px;
+  box-shadow:0 6px 24px rgba(0,0,0,.11);
+  object-fit:cover;
+  height:auto;
 }
-/* Mobile fallback – still side-by-side on most phones, stack only on very tiny screens */
-@media (max-width: 480px) {
-  .proof-row {
-    flex-direction: column;
-  }
-  .proof-row img {
-    width: 100%;
-    max-width: 300px;
-  }
+
+/* fallback: stack only on extremely narrow screens */
+@media (max-width: 380px) {
+  .proof-row{flex-direction:column;}
+  .proof-row img{width:100%;max-width:260px;}
 }
 </style>
 </head>
+
 <body>
+
+<!-- HEADER -->
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
   <p style="font-size:15px;color:#6D6D6D;margin:0;">Complete the steps below</p>
 </div>
+
+<!-- STEPS -->
 <div class="steps-box">
   <p>1. Click The Link Below👇</p>
   <p>2. Enter Your Email &amp; Basic Info</p>
@@ -144,9 +158,11 @@ body{
   </p>
   <p>4. Claim Your Gift Card!</p>
 </div>
+
 <!-- 🌍 Geo / special access text -->
 <div id="geoLine" class="geo-text">Checking eligibility…</div>
-<!-- ✅ CTR tracked CTA -->
+
+<!-- CTA -->
 <a
   href="#"
   id="shein-btn"
@@ -155,76 +171,53 @@ body{
 >
   <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"
        style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
-  <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;">
+  <div class="text-container" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
     <span>Continue To SHEIN Gift Card</span>
     <span class="subtext">(Enter Email &amp; Complete Deals)</span>
   </div>
 </a>
+
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
+
+<!-- 🧾 Proof -->
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 
-<!-- Smaller side-by-side proofs – no horizontal scroll needed -->
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="Proof 1"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="Proof 2"/>
 </div>
 
+<!-- 🌍 GEO JS LOGIC -->
 <script>
 const geoLine=document.getElementById('geoLine');
 const btn=document.getElementById('shein-btn');
+
 const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
 const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
+
 function countryCodeToFlagEmoji(cc){
   if(!cc || cc.length!==2) return "";
   return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
 }
-function setGeo(cc, cn){
+function setGeo(cc){
   cc = (cc || "").toUpperCase();
   const flag = countryCodeToFlagEmoji(cc);
-  if(cc==="US"){
-    geoLine.textContent = `${flag || "🇺🇸"} United States has special access`;
-    btn.href = linkUS;
-  } else if(cc==="CA"){
-    geoLine.textContent = `${flag || "🇨🇦"} Canada has special access`;
-    btn.href = linkCA;
-  } else if(cc==="GB"){
-    geoLine.textContent = `${flag || "🇬🇧"} United Kingdom has special access`;
-    btn.href = linkGB;
-  } else if(cc==="AU"){
-    geoLine.textContent = `${flag || "🇦🇺"} Australia has special access`;
-    btn.href = linkAU;
-  } else {
-    geoLine.textContent = `🌍 Available worldwide`;
-    btn.href = linkRest;
-  }
+
+  if(cc==="US"){ geoLine.textContent = `${flag} United States has special access`; btn.href=linkUS; }
+  else if(cc==="CA"){ geoLine.textContent = `${flag} Canada has special access`; btn.href=linkCA; }
+  else if(cc==="GB"){ geoLine.textContent = `${flag} United Kingdom has special access`; btn.href=linkGB; }
+  else if(cc==="AU"){ geoLine.textContent = `${flag} Australia has special access`; btn.href=linkAU; }
+  else{ geoLine.textContent = `🌍 Available worldwide`; btn.href=linkRest; }
 }
+
 fetch('https://ipapi.co/json/')
-  .then(r => r.ok ? r.json() : Promise.reject())
-  .then(d => {
-    if(d && d.country){
-      setGeo(d.country, d.country_name);
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(() => {
-    fetch('https://ipwho.is/')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(d => {
-        if(d && d.country_code){
-          setGeo(d.country_code, d.country);
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(() => {
-        geoLine.textContent = "🌍 Available worldwide";
-        btn.href = linkRest;
-      });
-  });
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(d=>setGeo(d.country))
+  .catch(()=>setGeo());
 </script>
+
 </body>
 </html>
