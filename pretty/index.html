@@ -17,14 +17,19 @@ body{
   font-family:'Montserrat',sans-serif;
 }
 
-/* headline */
-h1{
-  font-size:24px;font-weight:500;text-align:center;
-  margin-top:30px;margin-bottom:16px;color:#111;
+/* header image + title */
+.header-block{
+  text-align:center;margin-top:22px;margin-bottom:10px;
+}
+.header-block img{
+  width:80px;height:80px;border-radius:50%;margin-bottom:14px;
+}
+.header-block h1{
+  font-size:24px;font-weight:500;margin:0;color:#111;
 }
 .subline{
   text-align:center;color:#6D6D6D;font-size:15px;
-  margin-top:-8px;margin-bottom:20px;
+  margin-top:4px;margin-bottom:24px;
 }
 
 /* button */
@@ -57,11 +62,6 @@ h1{
 }
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* trust */
-.trust-text{
-  font-size:12px;color:#888;text-align:center;margin-top:0;
-}
-
 /* proofs */
 .proof-headline{
   font-size:18px;font-weight:700;color:#222;text-align:center;
@@ -76,7 +76,7 @@ h1{
   box-shadow:0 6px 24px rgba(0,0,0,.11);
 }
 
-/* mobile adjustments */
+/* mobile */
 @media(max-width:420px){
   .proof-row img{max-width:205px;}
 }
@@ -89,8 +89,11 @@ h1{
 
 <body>
 
-<h1>Claim Your Gift Card Now!</h1>
-<p class="subline">Just tap below to continue</p>
+<div class="header-block">
+  <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png"/>
+  <h1>Claim Your Gift Card Now!</h1>
+  <p class="subline">Just tap below to continue 👇</p>
+</div>
 
 <!-- CTA -->
 <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
@@ -102,15 +105,14 @@ h1{
   </div>
 </a>
 
-<p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
-
+<!-- PROOFS -->
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
 </div>
 
-<!-- 🌍 Hidden GEO Routing Logic -->
+<!-- 🌍 Hidden GEO Routing -->
 <script>
 const btn=document.getElementById('shein-btn');
 
