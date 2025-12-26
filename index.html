@@ -42,7 +42,7 @@ body{
   cursor:pointer;
   display:flex;
   align-items:center;
-  justify-content:center; /* center content instead of left */
+  justify-content:center;
   border-radius:50px;
   font-family:'Montserrat',sans-serif;
   width:100%;
@@ -109,25 +109,31 @@ body{
   background:#f8f8f8;
   height:auto;
 }
-/* New: Horizontal proof images row */
+/* Fixed: Horizontal proof images – forced side-by-side */
 .proof-row {
   display: flex;
   justify-content: center;
-  gap: 15px; /* space between images */
-  margin: 0 auto 30px auto;
-  max-width: 800px;
-  padding: 0 10px;
-  flex-wrap: wrap; /* stack on very small screens if needed */
+  align-items: center;
+  gap: 20px; /* bigger gap for breathing room */
+  margin: 0 auto 40px auto;
+  padding: 0 15px;
+  flex-wrap: nowrap; /* no wrapping – force side-by-side */
+  overflow-x: auto; /* scroll horizontally if screen too narrow */
+  -ms-overflow-style: none; /* hide scrollbar IE/Edge */
+  scrollbar-width: none; /* hide scrollbar Firefox */
 }
+.proof-row::-webkit-scrollbar { display: none; } /* hide scrollbar Chrome/Safari */
 .proof-row img {
-  width: 48%; /* roughly half each, with gap */
+  flex: 1 1 45%; /* each takes ~45% */
+  min-width: 280px; /* minimum size so they don't shrink too much */
   max-width: 380px;
   border-radius: 10px;
   box-shadow: 0 6px 24px rgba(0,0,0,.11);
 }
-@media (max-width: 480px) {
-  .proof-row img {
-    width: 100%; /* stack vertically on tiny phones */
+/* On very small screens, allow horizontal scroll instead of stack */
+@media (max-width: 600px) {
+  .proof-row {
+    justify-content: flex-start; /* left align for scrolling */
   }
 }
 </style>
@@ -165,7 +171,7 @@ body{
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 
-<!-- New: Horizontal row for the two proof images -->
+<!-- Fixed horizontal proof row -->
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="Proof 1"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="Proof 2"/>
@@ -203,7 +209,6 @@ function setGeo(cc, cn){
     btn.href = linkRest;
   }
 }
-// First try ipapi
 fetch('https://ipapi.co/json/')
   .then(r => r.ok ? r.json() : Promise.reject())
   .then(d => {
@@ -214,7 +219,6 @@ fetch('https://ipapi.co/json/')
     }
   })
   .catch(() => {
-    // Fallback to ipwho.is
     fetch('https://ipwho.is/')
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => {
