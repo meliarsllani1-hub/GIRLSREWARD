@@ -15,13 +15,16 @@
 <style>
 body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 
+/* steps slightly bigger & longer feel */
 .steps-box{
-  color:#000;padding:20px;font-size:17px;text-align:center;line-height:1.6;
+  color:#000;padding:20px;font-size:18px;text-align:center;line-height:1.7;
   max-width:500px;margin:20px auto;box-sizing:border-box;
+  font-weight:600;
+  letter-spacing:0.3px;
 }
-.steps-box p{margin:16px 0;}
+.steps-box p{margin:18px 0;}
 
-/* ⭐ BUTTON — final CTR build */
+/* ⭐ BUTTON — CTR build */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
@@ -69,7 +72,7 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* 🌍 GEO — final build */
+/* 🌍 GEO — uppercase, bold, NO arrow */
 .geo-text{
   font-size:16px;
   font-weight:800;
@@ -80,19 +83,13 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   margin:18px auto -4px auto;
   letter-spacing:-0.2px;
 }
-.geo-text::after{
-  content:"👇";
-  display:block;
-  margin-top:6px;
-  font-size:20px;
-}
 
 /* trust + proofs */
 .trust-text{text-align:center;font-size:12px;color:#888;margin-top:12px;margin-bottom:0;font-weight:500;max-width:500px;margin-left:auto;margin-right:auto;}
 
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
 
-/* 📸 proofs — bigger but balanced */
+/* 📸 proofs — balanced */
 .proof-row{
   display:flex;
   justify-content:center;
@@ -125,21 +122,21 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-  <p style="font-size:15px;color:#6D6D6D;margin:0;">Just one tap away 👇</p>
+  <p style="font-size:15px;color:#6D6D6D;margin:0;letter-spacing:0.3px;">JUST ONE TAP AWAY</p>
 </div>
 
 <!-- STEPS -->
 <div class="steps-box">
-  <p>1. Click The Link Below👇</p>
+  <p>1. Click The Button Below 👇</p>
   <p>2. Enter Your Email &amp; Basic Info</p>
   <p>3. Complete Recommended Deals<br>
-    <span style="font-size:12px;color:#6D6D6D">(Higher value deals = faster rewards!)</span>
+    <span style="font-size:13px;color:#6D6D6D">(Higher value deals = faster rewards!)</span>
   </p>
   <p>4. Claim Your Gift Card!</p>
 </div>
 
 <!-- GEO -->
-<div id="geoLine" class="geo-text">Checking eligibility…</div>
+<div id="geoLine" class="geo-text">CHECKING ELIGIBILITY…</div>
 
 <!-- CTA -->
 <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
@@ -172,11 +169,11 @@ const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNj
 
 function setGeo(cc){
   cc=(cc||"").toUpperCase();
-  if(cc==="US"){geoLine.textContent="🇺🇸 United States – SPECIAL ACCESS";btn.href=linkUS;}
-  else if(cc==="CA"){geoLine.textContent="🇨🇦 Canada – SPECIAL ACCESS";btn.href=linkCA;}
-  else if(cc==="GB"){geoLine.textContent="🇬🇧 United Kingdom – SPECIAL ACCESS";btn.href=linkGB;}
-  else if(cc==="AU"){geoLine.textContent="🇦🇺 Australia – SPECIAL ACCESS";btn.href=linkAU;}
-  else{geoLine.textContent="🌍 Available worldwide";btn.href=linkRest;}
+  if(cc==="US"){geoLine.textContent="🇺🇸 UNITED STATES – SPECIAL ACCESS";btn.href=linkUS;}
+  else if(cc==="CA"){geoLine.textContent="🇨🇦 CANADA – SPECIAL ACCESS";btn.href=linkCA;}
+  else if(cc==="GB"){geoLine.textContent="🇬🇧 UNITED KINGDOM – SPECIAL ACCESS";btn.href=linkGB;}
+  else if(cc==="AU"){geoLine.textContent="🇦🇺 AUSTRALIA – SPECIAL ACCESS";btn.href=linkAU;}
+  else{geoLine.textContent="🌍 AVAILABLE WORLDWIDE";btn.href=linkRest;}
 }
 
 fetch("https://ipapi.co/json/")
