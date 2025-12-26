@@ -21,55 +21,42 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 }
 .steps-box p{margin:16px 0;}
 
-/* ⭐ BUTTON — less wide, more tall, image left, centered text, border boost, shimmer, subtle underline */
+/* ⭐ BUTTON — solid, wider, taller, no shimmer */
 .shein-btn{
   background:#ff66b2;
   color:#fff;
-  padding:18px 22px;             /* taller */
+  padding:18px 26px;
   font-size:16px;
   cursor:pointer;
   display:flex;
   align-items:center;
-  justify-content:flex-start;     /* image left */
+  justify-content:flex-start;
   border-radius:50px;
-  width:88%;                      /* shorter width */
-  max-width:380px;                /* less horizontal */
-  margin:10px auto 16px auto;
+  width:94%;                 /* wider again */
+  max-width:460px;           /* but not full edge-to-edge */
+  margin:14px auto;
   box-sizing:border-box;
   transition:transform .18s ease, box-shadow .25s ease;
   text-decoration:none;
   position:relative;
-  border:3px solid #ffb3d6;       /* border around button = more button feel */
+  border:3px solid #ffb3d6;
   animation:sheinPulse 3s infinite ease-in-out;
 }
-
-/* shimmer overlay */
-.shein-btn::after{
-  content:"";
-  position:absolute;
-  top:0;left:-100%;
-  width:200%;height:100%;
-  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0.45) 50%,transparent 100%);
-  transition:0.8s;
-  border-radius:50px;
-}
-.shein-btn:hover::after{left:100%;}
 .shein-btn:hover{
-  transform:scale(1.06);
+  transform:scale(1.05);
   box-shadow:0 8px 22px rgba(255,102,178,.35);
 }
 
-/* soft pulse */
+/* soft pulse only */
 @keyframes sheinPulse{
-  0%,100%{box-shadow:0 0 0 rgba(255,102,178,0.1);}
-  50%{box-shadow:0 0 18px rgba(255,102,178,.35);}
+  0%,100%{box-shadow:0 0 0 rgba(255,102,178,0);}
+  50%{box-shadow:0 0 14px rgba(255,102,178,.25);}
 }
 
 .btn-img{
-  width:45px;height:45px;border-radius:50%;margin-right:16px;
+  width:46px;height:46px;border-radius:50%;margin-right:18px;
 }
 
-/* text centered inside but image remains left */
 .text-container{
   display:flex;
   flex-direction:column;
@@ -77,40 +64,45 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   text-align:center;
   flex-grow:1;
 }
-
 .text-container span:first-child{
   font-size:17px;
   font-weight:600;
-  border-bottom:2px solid transparent;
-  transition:border-color .25s ease;
 }
-
-/* pink underline micro boost */
-.shein-btn:hover .text-container span:first-child{
-  border-color:#fff;
-}
-
 .subtext{font-size:11px;margin-top:4px;opacity:.9;}
 
-/* 🌍 Special access text */
+/* 🌍 Special access */
 .geo-text{
   font-size:14px;font-weight:600;color:#ff66b2;text-align:center;
   max-width:500px;margin:6px auto 8px auto;
-  transition:color .25s ease;
 }
-.geo-text:hover{color:#ff4fa7;text-decoration:underline;text-underline-offset:4px;}
 
 .trust-text{text-align:center;font-size:12px;color:#888;margin-top:12px;margin-bottom:0;font-weight:500;max-width:500px;margin-left:auto;margin-right:auto;}
 
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
 
-.proof-row{display:flex;justify-content:center;align-items:center;gap:8px;max-width:500px;margin:0 auto 40px auto;padding:0;}
-.proof-row img{
-  width:46%;max-width:160px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.11);object-fit:cover;height:auto;
+/* 📸 BIGGER PROOF IMAGES SIDE-BY-SIDE */
+.proof-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  max-width:500px;
+  margin:0 auto 40px auto;
 }
-@media (max-width:380px){
+.proof-row img{
+  width:48%;
+  max-width:230px;      /* bigger */
+  border-radius:10px;
+  box-shadow:0 6px 24px rgba(0,0,0,.11);
+  object-fit:cover;
+  height:auto;
+}
+@media (max-width:420px){
+  .proof-row img{max-width:200px;}
+}
+@media (max-width:360px){
   .proof-row{flex-direction:column;}
-  .proof-row img{width:100%;max-width:260px;}
+  .proof-row img{width:100%;max-width:300px;}
 }
 </style>
 </head>
@@ -137,9 +129,10 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <!-- GEO TEXT -->
 <div id="geoLine" class="geo-text">Checking eligibility…</div>
 
-<!-- BUTTON -->
+<!-- CTA -->
 <a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
-  <img class="btn-img" src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"/>
+  <img class="btn-img"
+       src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"/>
   <div class="text-container">
     <span>Continue To SHEIN Gift Card</span>
     <span class="subtext">(Enter Email &amp; Complete Deals)</span>
@@ -148,13 +141,14 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 
+<!-- PROOFS -->
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
 </div>
 
-<!-- GEO LOGIC -->
+<!-- 🌍 GEO LOGIC with fallback -->
 <script>
 const geoLine=document.getElementById('geoLine');
 const btn=document.getElementById('shein-btn');
@@ -165,9 +159,9 @@ const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
 const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
 
+/* sets correct geo */
 function setGeo(cc){
   cc=(cc||"").toUpperCase();
-
   if(cc==="US"){geoLine.textContent="🇺🇸 United States has special access";btn.href=linkUS;}
   else if(cc==="CA"){geoLine.textContent="🇨🇦 Canada has special access";btn.href=linkCA;}
   else if(cc==="GB"){geoLine.textContent="🇬🇧 United Kingdom has special access";btn.href=linkGB;}
@@ -175,10 +169,16 @@ function setGeo(cc){
   else{geoLine.textContent="🌍 Available worldwide";btn.href=linkRest;}
 }
 
+/* multiple fallbacks to actually detect US/CA/GB/AU */
 fetch("https://ipapi.co/json/")
   .then(r=>r.ok?r.json():Promise.reject())
   .then(d=>setGeo(d.country))
-  .catch(()=>setGeo());
+  .catch(()=>{
+    fetch("https://ipwho.is/")
+      .then(r=>r.ok?r.json():Promise.reject())
+      .then(d=>setGeo(d.country_code))
+      .catch(()=>setGeo());
+  });
 </script>
 
 </body>
