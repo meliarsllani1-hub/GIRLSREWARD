@@ -23,9 +23,9 @@
 
   *{box-sizing:border-box;}
   body{
-    background:#fff;
+    background:#f6f6f8; /* iOS grouped background */
     margin:0;
-    font-family:'Montserrat',sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,'Montserrat',sans-serif; /* iOS first */
     color:var(--text);
   }
 
@@ -54,11 +54,21 @@
   }
   .wrap > *{ position:relative; z-index:1; }
 
+  /* iOS top card */
+  .top-card{
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:22px;
+    padding:14px 12px 12px;
+    box-shadow:0 10px 24px rgba(0,0,0,.05);
+    margin:4px 0 12px;
+  }
+
   /* Top */
-  .top{ text-align:center; padding-top:4px; }
+  .top{ text-align:center; padding-top:2px; }
   .avatar{
     width:78px;height:78px;border-radius:50%;
-    display:block;margin:10px auto 10px;
+    display:block;margin:6px auto 10px;
     box-shadow:0 10px 24px rgba(0,0,0,.10);
   }
   .kicker{
@@ -78,7 +88,7 @@
   .sub{
     font-size:14px;
     color:var(--muted);
-    margin:0 0 16px;
+    margin:0 0 2px;
     line-height:1.45;
     font-weight:700;
   }
@@ -95,7 +105,7 @@
     justify-content:flex-start;
     border-radius:999px;
     width:100%;
-    margin:10px auto 12px;
+    margin:12px auto 12px;
     text-decoration:none;
     position:relative;
     transition:transform .18s ease, filter .18s ease;
@@ -194,6 +204,7 @@
     user-select:none;
     -webkit-tap-highlight-color:transparent;
   }
+  details.how summary:active{opacity:.75;} /* iOS tap feedback */
   details.how summary .left{
     display:flex;
     align-items:center;
@@ -262,9 +273,7 @@
     font-size:12px;
     margin-top:1px;
   }
-  .step-text{
-    flex:1;
-  }
+  .step-text{ flex:1; }
 
   /* Proof images */
   .proof-headline{
@@ -324,11 +333,13 @@
 <body>
   <div class="wrap">
 
-    <div class="top">
-      <img class="avatar" src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" alt=""/>
-      <p class="kicker">if you’re wondering too…</p>
-      <h1 class="headline">it’s the SHEIN gift card you saw on IG 💖</h1>
-      <p class="sub">Details are shown on the next page.</p>
+    <div class="top-card">
+      <div class="top">
+        <img class="avatar" src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" alt=""/>
+        <p class="kicker">if you’re wondering too…</p>
+        <h1 class="headline">it’s the SHEIN gift card you saw on IG 💖</h1>
+        <p class="sub">Details are shown on the next page.</p>
+      </div>
     </div>
 
     <!-- CTA FIRST -->
@@ -352,7 +363,7 @@
       <summary>
         <span class="left">
           <span>How It Works</span>
-          <span class="tap-pill">Quick steps</span>
+          <span class="tap-pill">View steps</span>
         </span>
         <span class="chev" aria-hidden="true">›</span>
       </summary>
@@ -466,9 +477,9 @@
       });
     });
 
-    // show sticky CTA after small scroll
+    // show sticky CTA after small scroll (earlier for iPhone)
     window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 220) stickyWrap.style.display = 'block';
+      if(window.scrollY > 140) stickyWrap.style.display = 'block';
       else stickyWrap.style.display = 'none';
     }, {passive:true});
   </script>
