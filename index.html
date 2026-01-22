@@ -32,7 +32,7 @@
   .wrap{
     max-width:520px;
     margin:0 auto;
-    padding:16px 14px 92px; /* extra bottom room for sticky CTA */
+    padding:16px 14px 92px;
   }
 
   /* Top */
@@ -121,7 +121,7 @@
     font-weight:800;
   }
 
-  /* Micro status */
+  /* Micro */
   .micro{
     text-align:center;
     font-size:12px;
@@ -130,7 +130,7 @@
     font-weight:800;
   }
 
-  /* Availability chip */
+  /* Availability */
   .eligible-box{
     background:var(--card);
     margin:12px auto 14px;
@@ -146,21 +146,9 @@
     display:flex;align-items:center;justify-content:center;
   }
 
-  /* Proof images */
-  .proof-image{
-    width:100%;
-    max-width:420px;
-    border-radius:14px;
-    display:block;
-    margin:12px auto 14px auto;
-    box-shadow:var(--shadow);
-    background:#f8f8f8;
-    height:auto;
-  }
-
-  /* How it works card (collapsed for CTR, but attention boosted) */
+  /* How it works (above proof images) */
   details.how{
-    margin:14px 0 0;
+    margin:14px 0 10px;
     border:1px solid var(--line);
     border-radius:16px;
     padding:12px 12px;
@@ -197,12 +185,11 @@
     position:relative;
     overflow:hidden;
   }
-  /* subtle nudge pulse (doesn't scream) */
   .tap-pill::after{
     content:"";
     position:absolute;
     inset:-40%;
-    background:radial-gradient(circle, rgba(255,79,166,.22), transparent 60%);
+    background:radial-gradient(circle, rgba(255,79,166,.18), transparent 60%);
     animation:hintGlow 2.4s ease-in-out infinite;
   }
   @keyframes hintGlow{
@@ -232,15 +219,26 @@
     font-weight:900;
     font-size:12px;
     display:block;
-    margin-top:4px;
+    margin-top:6px;
   }
 
+  /* Proof images */
   .proof-headline{
     font-size:16px;
     font-weight:900;
     color:#222;
     text-align:center;
-    margin:18px 0 10px;
+    margin:16px 0 10px;
+  }
+  .proof-image{
+    width:100%;
+    max-width:420px;
+    border-radius:14px;
+    display:block;
+    margin:12px auto 14px auto;
+    box-shadow:var(--shadow);
+    background:#f8f8f8;
+    height:auto;
   }
 
   .footer-trust{
@@ -251,7 +249,7 @@
     font-weight:800;
   }
 
-  /* Sticky bottom CTA (boosts CTR on scroll without harming EPC) */
+  /* Sticky bottom CTA */
   .sticky-wrap{
     position:fixed;
     left:0;
@@ -289,50 +287,48 @@
       <p class="sub">Details are shown on the next page.</p>
     </div>
 
-    <!-- CTA FIRST (better CTR + better click quality) -->
+    <!-- CTA FIRST -->
     <a href="#" class="shein-btn cta-link" id="shein-btn" aria-label="SHEIN Gift Card">
       <img class="btn-icon" src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" alt=""/>
       <div class="btn-text">
         <span class="btn-title">Unlock SHEIN Gift Card</span>
-        <span class="btn-sub">reward details on next page →</span>
+        <span class="btn-sub">Reward details on next page →</span>
       </div>
     </a>
 
-    <p class="micro">Step 1 of 3 • secure & mobile-friendly</p>
+    <p class="micro">🔒 secure • mobile-friendly</p>
 
-    <!-- Eligibility AFTER CTA (filters low intent + keeps flow clean) -->
+    <!-- Eligibility AFTER CTA -->
     <div class="eligible-box" id="eligible-box">🌍 Checking availability...</div>
 
-    <!-- One proof image early (motivation BEFORE steps) -->
-    <img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt=""/>
-
+    <!-- How It Works ABOVE proof images -->
     <details class="how" id="how">
       <summary>
         <span class="left">
-          <span>how it works</span>
-          <span class="tap-pill">most people tap</span>
+          <span>How It Works</span>
+          <span class="tap-pill">Quick steps</span>
         </span>
         <span class="chev" aria-hidden="true">›</span>
       </summary>
 
       <div class="steps">
         1) Tap the pink button above 👆<br/>
-        2) Enter email + basic info<br/>
+        2) Enter your email + basic info<br/>
         3) Complete the recommended deals<br/>
-        <span class="muted">Completion of partner steps is required.</span>
-        <span class="muted">Higher value deals usually unlock faster.</span>
+        <span class="muted">Tip: Higher value deals usually unlock faster.</span>
         4) Claim your gift card ✅
       </div>
     </details>
 
-    <div class="proof-headline">More real rewards 👇</div>
+    <div class="proof-headline">Real rewards. Real screenshots 👇</div>
+    <img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt=""/>
     <img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt=""/>
 
     <p class="footer-trust">Powered by trusted partners • 256-bit encryption</p>
 
   </div>
 
-  <!-- Sticky bottom CTA (appears after scroll) -->
+  <!-- Sticky bottom CTA -->
   <div class="sticky-wrap" id="sticky-wrap">
     <div class="sticky-inner">
       <p class="sticky-note">Tap to continue</p>
@@ -340,13 +336,13 @@
         <img class="btn-icon" src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" alt=""/>
         <div class="btn-text">
           <span class="btn-title">Unlock SHEIN Gift Card</span>
-          <span class="btn-sub">reward details on next page →</span>
+          <span class="btn-sub">Reward details on next page →</span>
         </div>
       </a>
     </div>
   </div>
 
-  <!-- UMAMI (bottom = faster mobile load) -->
+  <!-- UMAMI -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
 
   <script>
@@ -370,7 +366,7 @@
         let r=await fetch("https://ipapi.co/json/");
         if(r.ok){
           let d=await r.json();
-          if(d.country&&d.country_name){setEligible(d.country,d.country_name);return;}
+          if(d.country && d.country_name){ setEligible(d.country, d.country_name); return; }
         }
       }catch(e){}
 
@@ -378,19 +374,19 @@
         let r=await fetch("https://ipwho.is/");
         if(r.ok){
           let d=await r.json();
-          if(d.country_code&&d.country){setEligible(d.country_code,d.country);return;}
+          if(d.country_code && d.country){ setEligible(d.country_code, d.country); return; }
         }
       }catch(e){}
     })();
 
-    // flag + routing
     function countryCodeToFlagEmoji(cc){
-      if(!cc||cc.length!==2)return"";
+      if(!cc || cc.length!==2) return "";
       return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
     }
 
-    function setEligible(cc,cn){
+    function setEligible(cc, cn){
       eligibleBox.textContent = `✅ Reward available in ${cn} ${countryCodeToFlagEmoji(cc)}`;
+
       let target = linkRest;
       if(cc==="US") target = linkUS;
       else if(cc==="CA") target = linkCA;
@@ -410,7 +406,7 @@
       });
     });
 
-    // show sticky CTA after small scroll (CTR boost without changing main flow)
+    // show sticky CTA after small scroll
     window.addEventListener('scroll', ()=>{
       if(window.scrollY > 220) stickyWrap.style.display = 'block';
       else stickyWrap.style.display = 'none';
