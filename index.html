@@ -29,47 +29,26 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .eligible-box{background:#fff;max-width:500px;margin:10px auto 0;padding:10px 14px;font-size:13px;text-align:center;color:#333;border-radius:12px;border:1px solid #eee;box-shadow:0 1px 6px rgba(0,0,0,.04);font-weight:500;min-height:38px;display:flex;align-items:center;justify-content:center;}
 .trust-text{text-align:center;font-size:12px;color:#888;margin-top:12px;margin-bottom:0;font-weight:500;max-width:500px;margin-left:auto;margin-right:auto;}
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
-
-/* ✅ UPDATED proofs: side-by-side, smaller */
-.proof-row{
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  gap:12px;
-  margin:0 auto 24px auto;
-  max-width:500px;
-  padding:0 10px;
-  box-sizing:border-box;
-}
-.proof-row img{
-  width:48%;
-  max-width:240px;
-  border-radius:10px;
-  display:block;
-  box-shadow:0 6px 24px rgba(0,0,0,.11);
-  background:#f8f8f8;
-  height:auto;
-}
-@media(max-width:360px){
-  .proof-row{flex-direction:column;}
-  .proof-row img{width:100%;max-width:400px;}
-}
+.proof-row{display:flex;justify-content:center;align-items:flex-start;gap:12px;margin:0 auto 24px auto;max-width:500px;padding:0 10px;box-sizing:border-box;}
+.proof-row img{width:48%;max-width:240px;border-radius:10px;display:block;box-shadow:0 6px 24px rgba(0,0,0,.11);background:#f8f8f8;height:auto;}
+@media(max-width:360px){.proof-row{flex-direction:column;}.proof-row img{width:100%;max-width:400px;}}
 </style>
 </head>
 
 <body>
 
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
-<img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
-<h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-<p style="font-size:15px;color:#6D6D6D;margin:0;">Higher value deals = faster rewards!</p>
+  <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;"/>
+  <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
+  <!-- ✅ changed header line (removed repeated "higher value deals") -->
+  <p style="font-size:15px;color:#6D6D6D;margin:0;">Complete the steps below to continue</p>
 </div>
 
 <div class="steps-box">
-<p>1. Click The Link Below👇</p>
-<p>2. Enter Your Email &amp; Basic Info</p>
-<p>3. Complete Recommended Deals<br><span style="font-size:12px;color:#6D6D6D">(Higher value deals = faster rewards!)</span></p>
-<p>4. Claim Your Gift Card!</p>
+  <p>1. Click The Link Below👇</p>
+  <p>2. Enter Your Email &amp; Basic Info</p>
+  <p>3. Complete Recommended Deals<br><span style="font-size:12px;color:#6D6D6D">(Higher value deals = faster rewards!)</span></p>
+  <p>4. Claim Your Gift Card!</p>
 </div>
 
 <!-- ✅ CTR tracked CTA -->
@@ -80,18 +59,22 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   data-umami-event="offer-click"
 >
   <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp" style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
-  <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;margin-left:25px;">
+  <!-- ✅ reduced left margin from 25px to 14px -->
+  <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;margin-left:14px;">
+    <!-- ✅ keep $750 SHEIN Gift Card the same -->
     <span id="giftcard-text">$750 SHEIN Gift Card</span>
-    <span class="subtext">(Enter Email &amp; Complete Deals)</span>
+    <!-- ✅ new subtext -->
+    <span class="subtext">Tap to continue ➜</span>
   </div>
 </a>
 
-<div class="eligible-box" id="eligible-box">Checking eligibility...</div>
+<!-- ✅ changed wording: eligibility -> availability -->
+<div class="eligible-box" id="eligible-box">Checking availability...</div>
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
 
-<!-- ✅ UPDATED proofs markup: side-by-side row -->
+<!-- ✅ proof pics side-by-side -->
 <div class="proof-row">
   <img src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg" alt="Proof 1"/>
   <img src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg" alt="Proof 2"/>
@@ -121,42 +104,30 @@ function setEligible(cc,cn){
   else btn.href=linkRest;
 }
 
-/* ✅ UPDATED geo: ipapi -> ipwho -> ipinfo (3rd fallback) */
+/* ✅ geo: ipapi -> ipwho -> ipinfo (3rd fallback) */
 fetch('https://ipapi.co/json/')
 .then(r=>r.ok?r.json():Promise.reject())
-.then(d=>{
-  if(d && d.country && d.country_name){
-    setEligible(d.country, d.country_name);
-  } else {
-    throw new Error();
-  }
-})
+.then(d=>{if(d&&d.country&&d.country_name){setEligible(d.country,d.country_name);}else throw new Error();})
 .catch(()=>{
-  fetch('https://ipwho.is/')
-  .then(r=>r.ok?r.json():Promise.reject())
-  .then(d=>{
-    if(d && d.country_code && d.country){
-      setEligible(d.country_code, d.country);
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(()=>{
-    fetch('https://ipinfo.io/json')
-    .then(r=>r.ok?r.json():Promise.reject())
-    .then(d=>{
-      // ipinfo: { country: "US", region: "...", city: "...", ... }
-      if(d && d.country){
-        setEligible(d.country, d.country || "Your country");
-      } else {
-        throw new Error();
-      }
-    })
-    .catch(()=>{
-      eligibleBox.textContent="✅ You are eligible 🌍";
-      btn.href=linkRest;
-    });
-  });
+ fetch('https://ipwho.is/')
+ .then(r=>r.ok?r.json():Promise.reject())
+ .then(d=>{if(d&&d.country_code&&d.country){setEligible(d.country_code,d.country);}else throw new Error();})
+ .catch(()=>{
+   fetch('https://ipinfo.io/json')
+   .then(r=>r.ok?r.json():Promise.reject())
+   .then(d=>{
+     if(d && d.country){
+       // ipinfo does not reliably return full country name without extra mapping
+       setEligible(d.country, "Your country");
+     } else {
+       throw new Error();
+     }
+   })
+   .catch(()=>{
+     eligibleBox.textContent="✅ You are eligible 🌍";
+     btn.href=linkRest;
+   });
+ });
 });
 </script>
 
