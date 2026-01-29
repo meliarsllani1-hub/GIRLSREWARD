@@ -37,6 +37,7 @@
       padding:16px 14px 34px;
     }
 
+    /* ONE continuous container */
     .card{
       background:rgba(255,255,255,.98);
       border:1px solid rgba(0,0,0,.06);
@@ -75,15 +76,6 @@
       color:var(--muted);
       font-weight:850;
       line-height:1.45;
-    }
-
-    .disclaimer{
-      margin:10px auto 0;
-      max-width:440px;
-      font-size:11px;
-      color:#7a7a7a;
-      font-weight:850;
-      line-height:1.35;
     }
 
     /* Steps */
@@ -153,25 +145,10 @@
       line-height:1.35;
     }
 
-    .eligible-box{
-      background:rgba(255,255,255,.94);
-      margin:12px auto 0;
-      padding:11px 14px;
-      font-size:12px;
-      text-align:center;
-      color:#333;
-      border-radius:14px;
-      border:1px solid rgba(238,238,238,.9);
-      box-shadow:0 8px 18px rgba(0,0,0,.05);
-      font-weight:900;
-      min-height:40px;
-      display:flex;align-items:center;justify-content:center;
-    }
-
     .divider{
       height:1px;
       background:linear-gradient(90deg, transparent, rgba(0,0,0,.06), transparent);
-      margin:14px 0 10px;
+      margin:16px 0 12px;
     }
 
     /* FAQ */
@@ -221,11 +198,12 @@
     }
 
     .footer{
-      margin-top:12px;
+      margin-top:14px;
       text-align:center;
       font-size:11px;
       color:#7a7a7a;
       font-weight:850;
+      line-height:1.4;
     }
     .footer a{color:#7a7a7a; text-decoration:none; font-weight:900;}
     .footer a:hover{text-decoration:underline;}
@@ -235,22 +213,14 @@
 
 <body>
   <div class="wrap">
-
     <div class="card">
+
       <div class="header">
         <img class="hero-img"
              src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"
              alt="Header"/>
-
         <h1>Complete Your Registration</h1>
-
-        <!-- IMPORTANT: I did NOT keep the “$500 Walmart gift card” claim (misleading).
-             This is the safe version for a rewards flow. -->
         <p class="sub">Follow these simple steps to continue and claim your reward.</p>
-
-        <p class="disclaimer">
-          This is a third-party rewards program with sponsored partner offers. Not affiliated with any retail brand unless explicitly stated.
-        </p>
       </div>
 
       <div class="steps">
@@ -260,18 +230,14 @@
         <div class="step"><div class="num">4</div><div class="txt">Enjoy your $750 SHEIN gift card!</div></div>
       </div>
 
-      <!-- CTA must have class cta-link for your routing script -->
       <a class="cta cta-link" href="#" aria-label="Claim Now">CLAIM NOW</a>
 
       <div class="micro">
         By clicking “Claim Now”, you agree to complete the required steps to qualify.
       </div>
 
-      <div class="eligible-box" id="eligible-box">✅ Reward available in your country 🌍</div>
-    </div>
-
-    <div class="card" style="margin-top:12px;">
       <div class="divider"></div>
+
       <div class="faq-title">Frequently Asked Questions</div>
 
       <details>
@@ -308,16 +274,18 @@
         <a href="TERMS_URL" target="_blank" rel="nofollow noopener">Terms</a>
         <span class="sep">•</span>
         <a href="SUPPORT_URL" target="_blank" rel="nofollow noopener">Support</a>
+        <div style="margin-top:8px;">
+          Sponsored partner offers • Not affiliated with brands unless stated
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 
   <!-- UMAMI -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8ca5b018-f00b-4957-8139-ce0333d8cbfce2"></script>
 
   <script>
-    const eligibleBox = document.getElementById('eligible-box');
     const buttons = document.querySelectorAll('.cta-link');
 
     // redirect links (UNCHANGED)
@@ -348,33 +316,26 @@
     };
 
     (async()=>{
-      try{
-        const {cc, cn} = await tryProvider("https://ipapi.co/json/", d => ({ cc: d.country, cn: d.country_name }));
-        setEligible(cc, cn); return;
-      }catch(e){}
+      let cc = null;
 
       try{
-        const {cc, cn} = await tryProvider("https://ipwho.is/", d => ({ cc: d.country_code, cn: d.country }));
-        setEligible(cc, cn); return;
+        const out = await tryProvider("https://ipapi.co/json/", d => ({ cc: d.country }));
+        cc = out.cc;
       }catch(e){}
 
-      try{
-        const {cc, cn} = await tryProvider("https://ipinfo.io/json", d => ({ cc: d.country, cn: d.country }));
-        setEligible(cc, cn); return;
-      }catch(e){}
+      if(!cc){
+        try{
+          const out = await tryProvider("https://ipwho.is/", d => ({ cc: d.country_code }));
+          cc = out.cc;
+        }catch(e){}
+      }
 
-      eligibleBox.textContent = "✅ Reward available 🌍";
-    })();
-
-    function countryCodeToFlagEmoji(cc){
-      if(!cc || cc.length!==2) return "";
-      return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
-    }
-
-    function setEligible(cc, cn){
-      eligibleBox.textContent = cn
-        ? `✅ Reward available in ${cn} ${countryCodeToFlagEmoji(cc)}`
-        : `✅ Reward available ${countryCodeToFlagEmoji(cc)}`;
+      if(!cc){
+        try{
+          const out = await tryProvider("https://ipinfo.io/json", d => ({ cc: d.country }));
+          cc = out.cc;
+        }catch(e){}
+      }
 
       let target = linkRest;
       if(cc==="US") target = linkUS;
@@ -383,7 +344,7 @@
       else if(cc==="AU") target = linkAU;
 
       buttons.forEach(b => b.href = target);
-    }
+    })();
 
     // Umami tracking with delay to fire before redirect (UNCHANGED EVENT NAME)
     buttons.forEach((btn)=>{
