@@ -1,270 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Claim Your $750 SHEIN Gift Card</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rewards Program</title>
 
-<link crossorigin href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-<link crossorigin href="https://i.postimg.cc" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
-<!-- ✅ Umami Analytics -->
-<script
-  defer
-  src="https://cloud.umami.is/script.js"
-  data-website-id="8ca5b018-f00b-4957-8139-ce0333d8fce2">
-</script>
+  <style>
+    :root{
+      --pink:#ff4fa6;
+      --pink2:#ff7ec6;
+      --bg:#ffffff;
+      --page:#f6f6f8;
+      --text:#121212;
+      --muted:#6d6d6d;
+      --line:#e9e9ee;
+      --card:#ffffff;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --shadowSoft:0 10px 24px rgba(0,0,0,.05);
+      --radius:20px;
+    }
 
-<style>
-body{
-  background:#fff;
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  color:#000;
-}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--page);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Arial,'Montserrat',sans-serif;
+    }
 
-.steps-box{
-  color:#000;
-  padding:20px;
-  font-size:17px;
-  text-align:center;
-  line-height:1.6;
-  max-width:500px;
-  margin:20px auto;
-}
-.steps-box p{margin:16px 0;}
+    .wrap{
+      max-width:520px;
+      margin:0 auto;
+      padding:18px 14px 34px;
+    }
 
-.shein-btn{
-  background:#ff66b2;
-  color:#fff;
-  padding:14px 20px;
-  font-size:15px;
-  border:2px solid #fff;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  border-radius:50px;
-  width:100%;
-  max-width:500px;
-  margin:6px auto 14px auto;
-  box-sizing:border-box;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  animation:sheinPulse 2.2s infinite;
-  text-decoration:none;
-}
-@keyframes sheinPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,102,178,.35);}
-  70%{box-shadow:0 0 0 10px rgba(255,102,178,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,102,178,0);}
-}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadowSoft);
+      padding:18px 16px;
+    }
 
-.text-container span:first-child{
-  font-size:16px;
-  font-weight:500;
-}
-.subtext{
-  font-size:11px;
-  margin-top:4px;
-  opacity:.9;
-}
+    /* Header */
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 0 6px;
+    }
+    .brand img{
+      height:34px;
+      width:auto;
+      display:block;
+    }
+    .brand .name{
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:18px;
+    }
 
-/* INLINE EMAIL */
-.inline-email{
-  max-width:500px;
-  margin:4px auto 10px;
-  padding:0 8px;
-  text-align:center;
-  opacity:0.95;
-}
-.inline-text{
-  font-size:13px;
-  color:#555;
-  margin-bottom:6px;
-  font-weight:500;
-}
-.inline-pill{
-  display:flex;
-  align-items:center;
-  width:100%;
-  max-width:500px;
-  margin:0 auto;
-  padding:3px;
-  border-radius:50px;
-  border:1px solid #eee;
-}
-.inline-pill input{
-  flex:1;
-  border:none;
-  outline:none;
-  padding:12px 15px;
-  font-size:13.5px;
-  font-family:'Montserrat',sans-serif;
-  text-align:center;
-}
-.inline-pill button{
-  padding:0 17px;
-  height:41px;
-  border-radius:50px;
-  border:none;
-  background:#ffd1e8;
-  color:#000;
-  font-size:13.5px;
-  font-weight:700;
-  cursor:pointer;
-}
-.note{
-  font-size:11px;
-  color:#888;
-  margin-top:4px;
-}
+    .title{
+      text-align:center;
+      margin:4px 0 2px;
+      font-weight:900;
+      font-size:20px;
+      letter-spacing:-.3px;
+    }
+    .sub{
+      text-align:center;
+      margin:0;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      line-height:1.45;
+    }
 
-.eligible-box{
-  background:#fff;
-  max-width:500px;
-  margin:10px auto 0;
-  padding:10px 14px;
-  font-size:13px;
-  text-align:center;
-  color:#333;
-  border-radius:12px;
-  border:1px solid #eee;
-  box-shadow:0 1px 6px rgba(0,0,0,.04);
-  font-weight:500;
-  min-height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+    .disclaimer{
+      margin:10px auto 0;
+      text-align:center;
+      font-size:11px;
+      color:#7a7a7a;
+      font-weight:800;
+      line-height:1.35;
+      max-width:420px;
+    }
 
-.trust-text{
-  text-align:center;
-  font-size:12px;
-  color:#888;
-  margin-top:12px;
-}
+    /* Steps */
+    .steps{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .step{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(180deg,#fff, #fff);
+    }
+    .step .num{
+      width:30px;height:30px;border-radius:999px;
+      background:linear-gradient(135deg,var(--pink),var(--pink2));
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
+      flex:0 0 auto;
+      box-shadow:0 10px 20px rgba(255,79,166,.22);
+    }
+    .step .txt{
+      font-weight:900;
+      font-size:13px;
+      color:#1a1a1a;
+      line-height:1.25;
+    }
 
-/* PROOF (SIDE-BY-SIDE, LOW SCROLL) */
-.proof-headline{
-  font-size:15px;
-  font-weight:500; /* NOT bold */
-  text-align:center;
-  margin-top:36px;
-  margin-bottom:12px;
-  color:#333;
-}
+    /* CTA */
+    .cta{
+      margin-top:14px;
+      display:block;
+      width:100%;
+      border:0;
+      padding:15px 16px;
+      border-radius:16px;
+      font-weight:950;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      cursor:pointer;
+      background:linear-gradient(135deg,var(--pink),var(--pink2));
+      color:#fff;
+      box-shadow:0 18px 40px rgba(255,79,166,.26);
+      -webkit-tap-highlight-color:transparent;
+      transition:transform .18s ease, filter .18s ease;
+    }
+    .cta:hover{transform:scale(1.01); filter:saturate(1.03);}
+    .cta:active{transform:scale(.99);}
 
-.proof-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  max-width:500px;
-  margin:0 auto;
-  padding:0 8px;
-}
+    .micro{
+      margin:10px 0 0;
+      text-align:center;
+      font-size:11px;
+      color:#7a7a7a;
+      font-weight:850;
+      line-height:1.35;
+    }
 
-.proof-image{
-  width:100%;
-  border-radius:10px;
-  display:block;
-  box-shadow:0 6px 24px rgba(0,0,0,.11);
-}
-</style>
+    /* FAQ */
+    .faq-wrap{
+      margin-top:14px;
+      padding:14px 12px;
+    }
+    .faq-title{
+      font-weight:950;
+      font-size:14px;
+      margin:0 0 10px;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 10px 22px rgba(0,0,0,.04);
+      margin:10px 0;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:900;
+      font-size:13px;
+    }
+    summary::-webkit-details-marker{display:none;}
+    .chev{
+      width:28px;height:28px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,79,166,.10);
+      color:#ff2f97;
+      font-weight:950;
+      flex:0 0 auto;
+      transition:transform .2s ease;
+    }
+    details[open] .chev{transform:rotate(180deg);}
+    .faq-body{
+      padding:0 12px 12px;
+      color:#404040;
+      font-weight:800;
+      font-size:12px;
+      line-height:1.55;
+      border-top:1px solid rgba(0,0,0,.05);
+    }
+
+    /* Footer links */
+    .footer{
+      margin-top:12px;
+      text-align:center;
+      font-size:11px;
+      color:#7a7a7a;
+      font-weight:850;
+    }
+    .footer a{
+      color:#7a7a7a;
+      text-decoration:none;
+      font-weight:900;
+    }
+    .footer a:hover{text-decoration:underline;}
+    .footer .sep{opacity:.6; margin:0 8px;}
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div style="text-align:center;margin-top:20px;">
-  <img src="https://i.postimg.cc/rppXNYm8/67829a8592805-66f2edc54b343-image1.png" style="width:80px;border-radius:50%;margin-bottom:15px;"/>
-  <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
-  <p style="font-size:15px;color:#6D6D6D;margin:0;">Higher value deals = faster rewards!</p>
-</div>
+    <div class="card">
+      <div class="brand">
+        <!-- Put YOUR brand logo here (not a store logo unless you have permission) -->
+        <img src="https://i.postimg.cc/0Q0Q0Q0Q/your-logo.png" alt="Brand Logo" onerror="this.style.display='none'"/>
+        <div class="name">Rewards</div>
+      </div>
 
-<div class="steps-box">
-  <p>1. Click The Link Below👇</p>
-  <p>2. Enter Your Email & Basic Info</p>
-  <p>3. Complete Recommended Deals<br><span style="font-size:12px;color:#6D6D6D">(Higher value deals = faster rewards!)</span></p>
-  <p>4. Claim Your Gift Card!</p>
-</div>
+      <h1 class="title">Complete Your Registration</h1>
+      <p class="sub">Follow these steps to continue and check your reward status.</p>
 
-<!-- CTA -->
-<a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
-  <img src="https://i.postimg.cc/zBfxrrSy/c5910bd5-e5b2-4c70-b124-9560d8cbf698-link-in-bio-links-block-home-2af2051e-f17c-4f49-8af7-1eac99.webp"
-       style="width:45px;height:45px;margin-right:12px;border-radius:50%;"/>
-  <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;margin-left:25px;">
-    <span>$750 SHEIN Gift Card</span>
-    <span class="subtext">(Enter Email &amp; Complete Deals)</span>
+      <p class="disclaimer">
+        This page promotes a third-party rewards program with sponsored partner offers. It is not affiliated with any retail brand unless explicitly stated.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div class="txt">Tap “Continue” below</div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="txt">Enter your email + basic info</div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="txt">Complete the required sponsored offers</div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="txt">Finish the claim process (ID verification may be required)</div>
+        </div>
+      </div>
+
+      <button class="cta" id="ctaBtn" type="button">Continue</button>
+
+      <div class="micro">
+        By clicking “Continue”, you agree to complete the required steps to qualify.
+      </div>
+    </div>
+
+    <div class="card faq-wrap">
+      <p class="faq-title">Frequently Asked Questions</p>
+
+      <details>
+        <summary>
+          How long do the offers take?
+          <span class="chev">⌄</span>
+        </summary>
+        <div class="faq-body">
+          Most users complete the required offers within about 5–7 days, but some offers can take longer depending on their terms (sometimes up to 60 days).
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What are “offers”?
+          <span class="chev">⌄</span>
+        </summary>
+        <div class="faq-body">
+          Partner offers can include mobile apps/games, trials, subscriptions, and services. Some are free, while many require a purchase or paid subscription to earn credit.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          How many offers do I have to complete?
+          <span class="chev">⌄</span>
+        </summary>
+        <div class="faq-body">
+          The number depends on the reward option and the program requirements shown on the next page. Each “level” is a group of offers with its own completion requirement.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          When will I receive my reward?
+          <span class="chev">⌄</span>
+        </summary>
+        <div class="faq-body">
+          After completing the required offers, you’ll go through the claim process. Verification and delivery can take a few business days. Many users receive delivery within about 6–10 days of registration (varies by offer timing and verification).
+        </div>
+      </details>
+    </div>
+
+    <div class="footer">
+      <a href="TERMS_URL" target="_blank" rel="nofollow noopener">Terms</a>
+      <span class="sep">•</span>
+      <a href="PRIVACY_URL" target="_blank" rel="nofollow noopener">Privacy</a>
+      <span class="sep">•</span>
+      <a href="SUPPORT_URL" target="_blank" rel="nofollow noopener">Support</a>
+    </div>
+
   </div>
-</a>
 
-<!-- INLINE EMAIL -->
-<div class="inline-email">
-  <div class="inline-text">✨ Get Future Rewards, Drops & Glow-Up Tips ✨</div>
-  <div class="inline-pill">
-    <input type="email" id="emailInput" placeholder="Your Email" autocomplete="email">
-    <button onclick="submitEmail()">ADD ME</button>
-  </div>
-  <div class="note">optional • no spam 💗</div>
-</div>
+  <script>
+    // Replace with your own destination or tracking link
+    const DESTINATION_URL = "YOUR_TRACKING_LINK_HERE";
 
-<div class="eligible-box" id="eligible-box">Checking eligibility...</div>
-<p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
-
-<!-- PROOF -->
-<div class="proof-headline">Real Rewards Shown By Users 👇</div>
-<div class="proof-grid">
-  <img class="proof-image" src="https://i.postimg.cc/ZqFcCJSC/upscalemedia-transformed.jpg"/>
-  <img class="proof-image" src="https://i.postimg.cc/3NWCSpDv/upscalemedia-transformed-1.jpg"/>
-</div>
-
-<script>
-const eligibleBox=document.getElementById('eligible-box');
-const btn=document.getElementById('shein-btn');
-
-const linkUS="https://glctrk.org/aff_c?offer_id=3091&aff_id=15802";
-const linkCA="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkGB="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkAU="https://glctrk.org/aff_c?offer_id=3105&aff_id=15802";
-const linkRest="https://rewardorbit.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjdkNTliZmEzNjlmZTUyYjM5YTAwOTdmIiwiYSI6Ijc1MCIsInRzIjoxNzY1MjMyNDg5MjAyfQ?amount=750";
-
-function countryCodeToFlagEmoji(cc){
-  if(!cc||cc.length!==2)return"";
-  return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
-}
-
-function setEligible(cc,cn){
-  eligibleBox.textContent=`✅ You are eligible – ${cn} ${countryCodeToFlagEmoji(cc)}`;
-  if(cc==="US") btn.href=linkUS;
-  else if(cc==="CA") btn.href=linkCA;
-  else if(cc==="GB") btn.href=linkGB;
-  else if(cc==="AU") btn.href=linkAU;
-  else btn.href=linkRest;
-}
-
-fetch('https://ipapi.co/json/')
-.then(r=>r.ok?r.json():Promise.reject())
-.then(d=>{ if(d&&d.country&&d.country_name){ setEligible(d.country,d.country_name); } else throw new Error(); })
-.catch(()=>{
-  fetch('https://ipwho.is/')
-  .then(r=>r.ok?r.json():Promise.reject())
-  .then(d=>{ if(d&&d.country_code&&d.country){ setEligible(d.country_code,d.country); } else throw new Error(); })
-  .catch(()=>{ eligibleBox.textContent="✅ You are eligible 🌍"; btn.href=linkRest; });
-});
-
-function submitEmail(){
-  const email=document.getElementById('emailInput').value.trim();
-  if(!email || !email.includes('@')) return;
-  fetch("https://assets.mailerlite.com/jsonp/1985087/forms/173899016085439626/subscribe",{
-    method:"POST",
-    headers:{ "Content-Type":"application/x-www-form-urlencoded" },
-    body:new URLSearchParams({ "fields[email]":email })
-  }).finally(()=>{ location.href=btn.href; });
-}
-</script>
-
+    document.getElementById("ctaBtn").addEventListener("click", () => {
+      window.location.href = DESTINATION_URL;
+    });
+  </script>
 </body>
 </html>
